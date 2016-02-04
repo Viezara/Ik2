@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#dbe3e3"
+
+    android:weightSum="1">
+
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/globe_splash"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ikona" />
+
+    <ZoomButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zoomButton"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#ff000000"
+        android:text="We sent you a verification code in your email"
+        android:id="@+id/verificationTitle"
+        android:layout_weight="0.05" />
+
+    <!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/verificationCode"
+        android:layout_gravity="center_horizontal"
+        android:text="CODE" /> -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/passPhrase"
+        android:textColor="#ff000000"
+        android:layout_gravity="center_horizontal"
+        android:text="PHRASE" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Is this your passphrase? if YES, please enter your verification code. Otherwise, Click Cancel or GO back to the main screen"
+        android:textAlignment="center"
+        android:id="@+id/textView7"
+        android:textColor="#ff000000"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="Verification Code"
+        android:drawableLeft="@drawable/lockverify"
+        android:id="@+id/securityCode"
+        android:textColor="#ff000000"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_verify"
+        android:id="@+id/verifyBtn"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

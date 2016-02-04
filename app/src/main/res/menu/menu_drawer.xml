@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group_1"
+        android:checkableBehavior="single">
+        <item android:id="@+id/navigation_item_0"
+            android:icon="@drawable/ic_action_camera"
+            android:title="Scan Products"/>
+        <item android:id="@+id/navigation_item_1"
+            android:icon="@drawable/ic_action_person"
+            android:title="Profile"/>
+        <item android:id="@+id/navigation_item_2"
+            android:icon="@drawable/ic_action_sd_storage"
+            android:title="Secure Data Store"/>
+    </group>
+    <group android:id="@+id/group_2"
+        android:checkableBehavior="single">
+        <item android:id="@+id/navigation_item_3"
+            android:icon="@drawable/ic_action_collection"
+            android:title="Reports"/>
+        <item android:id="@+id/navigation_item_4"
+            android:icon="@drawable/ic_action_settings"
+            android:title="User Settings"/>
+    </group>
+    <group android:id="@+id/group_3"
+        android:checkableBehavior="single">
+        <item android:id="@+id/navigation_item_5"
+            android:icon="@drawable/ic_action_help"
+            android:title="Help"/>
+        <item android:id="@+id/navigation_item_6"
+            android:icon="@drawable/ic_action_about"
+            android:title="About"/>
+    </group>
+    <group android:id="@+id/group_4"
+        android:checkableBehavior="single">
+        <item android:id="@+id/navigation_item_7"
+            android:icon="@drawable/ic_exit_to_app"
+            android:title="Log-off"/>
+    </group>
+</menu>

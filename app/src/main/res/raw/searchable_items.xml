@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sample>
+    <info>
+        <title>Using XPath to parse XML</title>
+        <author>Pete Houston</author>
+        <list>
+            <question id="1">
+                <title>What is the purpose of the Ikode SC Decoder?</title>
+                <content>
+                    The Ikode SC Decoder is a truly unique barcode / smartcode decoder.On one hand it is the “Swiss Army Knife” in decoding almost all available types of barcodes, such as:
+                </content>
+            </question>
+
+            <person id="2">
+                <name>Nina Jones</name>
+                <age>27</age>
+            </person>
+
+            <person id="3">
+                <name>Yumin Hanazuki</name>
+                <age>22</age>
+            </person>
+        </list>
+    </info>
+</sample>

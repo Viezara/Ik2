@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dbe3e3"
+    tools:context="com.ikode.viezara.ikode.UserConnect"
+    tools:showIn="@layout/activity_user_connect">
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_custom"
+        android:drawableLeft="@drawable/emailicon1"
+        android:ems="10"
+        android:hint="  john@ikode.com"
+        android:textColor="#ff000000"
+        android:inputType="textEmailAddress"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/ikode_bar"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:background="@drawable/edittext_custom"
+        android:drawableLeft="@drawable/passwordicon1"
+        android:ems="10"
+        android:hint=" ******"
+        android:inputType="textPassword"
+        android:password="true" />
+
+    <!-- <Button
+         style="?android:attr/buttonStyleSmall"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text=""
+         android:id="@+id/button5"
+         android:background="@drawable/button_createacct"
+         android:layout_above="@+id/button6"
+         android:layout_alignLeft="@+id/connect_btn"
+         android:layout_alignStart="@+id/connect_btn" />-->
+
+    <Button
+        android:id="@+id/button6"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/connect_btn"
+        android:layout_alignStart="@+id/connect_btn"
+        android:layout_below="@+id/connect_btn"
+        android:background="@drawable/button_forgpw"
+        android:text="" />
+
+    <Button
+        android:id="@+id/connect_btn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_connect" />
+</RelativeLayout>
