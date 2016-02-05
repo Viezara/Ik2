@@ -4,12 +4,10 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,7 +49,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
         SIGNUP_BTN = (Button) findViewById(R.id.signup_btn);
 //        cancel = (TextView) findViewById(R.id.textView2);
         TXTPHRASE = (EditText) findViewById(R.id.editText);
-        HELPBUTTON = (ImageButton) findViewById(R.id.imageButton3);
+        //HELPBUTTON = (ImageButton) findViewById(R.id.imageButton3);
 
 //        cancel.setOnClickListener(this);
 
@@ -86,7 +84,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
             }
         });
 
-        HELPBUTTON.setOnClickListener(new View.OnClickListener() {
+        /*HELPBUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -106,7 +104,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                         }).show();
 
             }
-        });
+        });*/
 
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

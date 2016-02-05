@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="● Initializing the Ikode SC Reader. This may take a few minutes "
+        android:text="● ID token must be between 8 and 16 characters long"
         android:id="@+id/textView"
         android:textSize="10dp"
         android:layout_above="@+id/progressBar"

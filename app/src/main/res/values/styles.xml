@@ -37,4 +37,29 @@
         <item name="android:textColorPrimary">#FAFAFA</item>
         <item name="android:textColorSecondary">#FAFAFA</item>
     </style>
+
+    <style name="Theme.Ikode" parent="@android:style/Theme.Holo.Dialog.NoActionBar">
+    <item name="alertDialog">@style/ikode.dialog</item>
+    </style>
+
+    <style name="ikode.dialog" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:buttonBarStyle">@style/ikode.ButtonBar.Dialog</item>
+    </style>
+
+    <style name="ikode.ButtonBar.Dialog" parent="android:style/Holo.ButtonBar.AlertDialog">
+        <item name="android:background">@drawable/ic_action_about</item>
+        <item name="android:layout_height">@dimen/fab_margin</item>
+        <item name="android:textColor">@color/status_text</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
 </resources>

@@ -14,42 +14,46 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_custom"
         android:drawableLeft="@drawable/emailicon1"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
         android:textColor="#ff000000"
         android:hint="  john@ikode.com"
         android:inputType="textEmailAddress"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="96dp"
+        android:layout_below="@+id/textView16"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <EditText
         android:id="@+id/registration_password"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:layout_width="match_parent"
         android:textColor="#ff000000"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registration_email"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/edittext_custom"
         android:drawableLeft="@drawable/passwordicon1"
         android:ems="10"
         android:hint=" ******"
         android:inputType="textPassword"
+        android:layout_below="@+id/registration_email"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <EditText
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#ff000000"
-        android:layout_below="@+id/registration_password"
-        android:layout_marginTop="4dp"
         android:background="@drawable/edittext_custom"
         android:drawableLeft="@drawable/passphrase"
         android:ems="10"
-        android:hint=" ID phrase"
+        android:hint=" ID token"
         android:inputType="textVisiblePassword"
-        android:nextFocusForward="@+id/signup_btn" />
+        android:nextFocusForward="@+id/signup_btn"
+        android:layout_below="@+id/registration_password"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
     <Button
@@ -58,26 +62,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_signup"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="● ID token must be between 8 and 16 characters long"
+        android:id="@+id/textView"
+        android:textColor="#ff000000"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:textSize="12dp"
+
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true" />
-    <ImageButton
-        android:id="@+id/imageButton3"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:src="@drawable/set_help"
-        android:layout_below="@+id/signup_btn"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="39dp" />
-    <ImageButton
-        android:id="@+id/imageButton6"
-        style="?android:attr/borderlessButtonStyle"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/set_about"
-        android:layout_alignTop="@+id/imageButton3"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Please read our Privacy Policy at this time before you register!"
+        android:drawableLeft="@drawable/ic_info_black_24dp"
+        android:id="@+id/textView16"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:textColor="#ff000000"
+        android:typeface="sans"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
