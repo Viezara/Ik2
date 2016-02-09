@@ -21,7 +21,7 @@ public class homescreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
 
-        REGISTER_BOX = (CheckBox) findViewById(R.id.checkBox);
+        REGISTER_BOX = (CheckBox) findViewById(R.id.checkBox2);
 
 //        REGISTER_BTN = (Button) findViewById(R.id.registerBtn);
         SCAN_BTN  = (Button) findViewById(R.id.scanButton);
@@ -32,8 +32,12 @@ public class homescreen extends AppCompatActivity {
        REGISTER_BOX.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-            Intent TO_REGISTRATION = new Intent("android.intent.action.REGISTRATION");
-               startActivity(TO_REGISTRATION);
+
+               if (REGISTER_BOX.isChecked()){
+                   Intent TO_REGISTRATION = new Intent("android.intent.action.REGISTRATION");
+                   startActivity(TO_REGISTRATION);
+               }
+
            }
         });
 

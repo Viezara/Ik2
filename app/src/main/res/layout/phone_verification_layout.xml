@@ -24,7 +24,7 @@
         android:layout_height="30dp"
         android:layout_below="@+id/imageView4"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ikona" />
+        android:src="@drawable/license1" />
 
     <ZoomButton
         android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
         android:id="@+id/passPhrase"
         android:textColor="#ff000000"
         android:layout_gravity="center_horizontal"
-        android:text="PHRASE" />
+        android:text="TOKEN" />
 
 
     <TextView

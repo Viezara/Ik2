@@ -24,7 +24,7 @@
     <!--//this is for the text inside the dialog//-->
 
     <style name="Theme_Ikode_Dialog_Alert" parent="@style/Theme_Holo_Dialog_Alert">
-        <item name="android:windowTitleStyle">@style/DialogWindowTitle_Ikode</item>
+        <!--<item name="android:windowTitleStyle">@style/DialogWindowTitle_Ikode</item>-->
         <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
         <!--Tutorial says Orange-->
         <item name="android:textAppearanceMedium">@style/TextAppearance.Ikode.Medium</item>

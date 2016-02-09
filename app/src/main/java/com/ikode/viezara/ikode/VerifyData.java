@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class VerifyData extends AppCompatActivity {
     private Button buttonSets, buttonSave;
     private SharedPreferences SP;
 
+    //for Toolbar
+    private Toolbar toolbar;
 
     private String id;
     private String docId;
@@ -45,6 +48,13 @@ public class VerifyData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_data);
+
+        //for toolbar
+        Toolbar  actionBarToolBar = (Toolbar) findViewById(R.id.ikode_bar);
+        setSupportActionBar(actionBarToolBar);
+        actionBarToolBar.setNavigationIcon(R.drawable.ic_action_camera);
+        actionBarToolBar.setNavigationIcon(R.drawable.ic_action_person);
+
 
         Intent intent = getIntent();
 
