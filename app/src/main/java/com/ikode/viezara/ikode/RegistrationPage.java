@@ -37,6 +37,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
     private String security_code="";
     private String input_password="";
     private String input_email="";
+    private String input_phrase="";
     private String Security_Code="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
 
                 input_password = PASSWORD.getText().toString().trim();
                 input_email = EMAIL.getText().toString().trim();
+                input_phrase = TXTPHRASE.getText().toString().trim();
                 if (isValid(input_email) == true) {
                     if (isEmpty(input_password) == false) {
                         addCode();
@@ -209,13 +211,13 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(RequestData.KEY_User_Email,input_email);
-                params.put(RequestData.KEY_User_Name,input_password);
-                params.put(RequestData.KEY_Security_Number,security_code);
-                params.put(RequestData.Key_User_Serial_Code,MOBILE_NUMBER);
+                params.put(RequestData.KEY_Token,input_phrase);
+                params.put(RequestData.KEY_Email,input_email);
+                params.put(RequestData.KEY_Pass,input_password);
+                params.put(RequestData.KEY_Code,MOBILE_NUMBER);
 
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(RequestData.URL_ADD_USER, params);
+                String s = rh.sendPostRequest(RequestData.URL_CREATE_USER, params);
                 return s;
             }
         }
@@ -228,15 +230,16 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
             try {
                 //Toast.makeText(getApplicationContext(),  json, Toast.LENGTH_LONG).show();
                 JSONObject jsonObject = new JSONObject(json);
-                String Code = jsonObject.getString(RequestData.TAG_DISPLAY_SECURITY_CODE);
-                String success = jsonObject.getString(RequestData.TAG_SUCCESS);
-                String msg = jsonObject.getString(RequestData.TAG_MSG);
-                if(success.equals("1"))
+                //String Code = jsonObject.getString(RequestData.TAG_DISPLAY_SECURITY_CODE);
+                String error = jsonObject.getString(RequestData.TAG_ERROR);
+                String msg = jsonObject.getString(RequestData.TAG_Message);
+                if(error.equals("false"))
                 {
+                    Toast.makeText(RegistrationPage.this, msg, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent("android.intent.action.VERIFICATION");
                     intent.putExtra("serial", MOBILE_NUMBER);
                     intent.putExtra("phrase", TXTPHRASE.getText().toString());
-                    intent.putExtra(RequestData.display_code, Code);
+                    //intent.putExtra(RequestData.display_code, Code);
                     startActivity(intent);
                 }
                 else

@@ -15,12 +15,16 @@ public class RequestData {
     public static final String URL_GET_CONNECT_USER = "http://www.darknz.5gbfree.com/android/getUser.php";
     */
     //local server
-    public static final String URL_GET_DATA = "http://219.89.205.123/android/getData.php?id=";
+    //public static final String URL_GET_DATA = "http://219.89.205.123/android/getData.php?id=";
     public static final String URL_GET_DATA_IMAGE = "http://219.89.205.123/android/getDataImage.php?id=";
     //public static final String URL_ADD="http://www.darkuz.5gbfree.com/android/VerifyCode.php";
     public static final String URL_GET_SECURITY_NUMBER="http://219.89.205.123/android/getSecurityNumber.php?securityNumber=";
     public static final String URL_ADD_USER="http://219.89.205.123/android/addUser.php";
     public static final String URL_GET_CONNECT_USER = "http://219.89.205.123/android/getUser.php";
+
+    public static final String URL_GET_DATA = "http://219.89.205.123/ikode/v1/check";
+    public static final String URL_GET_USER = "http://219.89.205.123/ikode/v1/login";
+    public static final String URL_CREATE_USER = "http://219.89.205.123/ikode/v1/register";
 
     //JSON Tags
     public static final String TAG_JSON_ARRAY="result";
@@ -28,6 +32,12 @@ public class RequestData {
     public static final String TAG_SUCCESS = "success";
     public static final String TAG_MSG = "message";
 
+    public static final String TAG_ERROR = "error";
+    public static final String TAG_USER = "user";
+    public static final String TAG_Message= "message";
+
+    public static final String TAG_docId = "docId";
+    public static final String TAG_Img = "image";
     public static final String TAG_TYPE = "type";
     public static final String TAG_DESC = "description";
     public static final String TAG_VER = "Version";
@@ -38,6 +48,13 @@ public class RequestData {
     public static final String KEY_User_Email = "user_Email";
     public static final String KEY_User_Name = "user_Name";
     public static final String Key_User_Serial_Code="serial_code";
+
+    public static final String KEY_docId="id";
+    public static final String KEY_Email="email";
+    public static final String KEY_Pass="password";
+    public static final String KEY_Token="token";
+    public static final String KEY_Code="code";
+
 
     //employee id to pass with intent
     public static final String barcode_ID = "barcode_ID";

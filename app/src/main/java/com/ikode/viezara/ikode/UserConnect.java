@@ -172,11 +172,11 @@ public class UserConnect extends Activity {
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(RequestData.KEY_User_Email,input_email);
-                params.put(RequestData.KEY_User_Name,input_password);
+                params.put(RequestData.KEY_Email,input_email);
+                params.put(RequestData.KEY_Pass,input_password);
 
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(RequestData.URL_GET_CONNECT_USER, params);
+                String s = rh.sendPostRequest(RequestData.URL_GET_USER, params);
                 return s;
             }
         }
@@ -187,9 +187,9 @@ public class UserConnect extends Activity {
     private void showUser(String json){
         try {
             JSONObject jsonObject = new JSONObject(json);
-            String success = jsonObject.getString(RequestData.TAG_SUCCESS);
-            String msg = jsonObject.getString(RequestData.TAG_MSG);
-            if(success.equals("1"))
+            String error = jsonObject.getString(RequestData.TAG_ERROR);
+            String msg = jsonObject.getString(RequestData.TAG_Message);
+            if(error.equals("false"))
             {
                 Toast.makeText(UserConnect.this, msg, Toast.LENGTH_LONG).show();
                 Intent userChoice = new Intent("android.intent.action.UserProfile");//changed this to User Profile

@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,11 +18,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class VerifyData extends AppCompatActivity {
 
@@ -113,9 +114,10 @@ public class VerifyData extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
+                HashMap<String, String> v = new HashMap<>();
+                v.put(RequestData.KEY_docId, id);
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(RequestData.URL_GET_DATA,id);
-
+                String s = rh.sendPostRequest(RequestData.URL_GET_DATA, v);
                 return s;
             }
         }
@@ -126,25 +128,35 @@ public class VerifyData extends AppCompatActivity {
     private void showData(String json){
         try {
             JSONObject jsonObject = new JSONObject(json);
-
+            String error = jsonObject.getString(RequestData.TAG_ERROR);
+            String msg = jsonObject.getString(RequestData.TAG_Message);
             //int success = jsonObject.getInt(Config.TAG_SUCCESS);
-            //if(success==1) {
-                JSONArray result = jsonObject.getJSONArray(RequestData.TAG_JSON_ARRAY);
-                JSONObject c = result.getJSONObject(0);
-                String type = c.getString(RequestData.TAG_TYPE);
-                String desc = c.getString(RequestData.TAG_DESC);
-                String ver = c.getString(RequestData.TAG_VER);
+            if(error.equals("false")) {
+                //JSONArray result = jsonObject.getJSONArray(RequestData.TAG_JSON_ARRAY);
+                //JSONObject c = result.getJSONObject(0);
 
-                    editDataId.setText(id);
+                Toast.makeText(VerifyData.this, msg, Toast.LENGTH_LONG).show();
+
+                String dataId = jsonObject.getString(RequestData.TAG_docId);
+                String type = jsonObject.getString(RequestData.TAG_TYPE);
+                String desc = jsonObject.getString(RequestData.TAG_DESC);
+                String ver = jsonObject.getString(RequestData.TAG_VER);
+                String img = jsonObject.getString(RequestData.TAG_Img);
+
+                    editDataId.setText(dataId);
                     editDataType.setText(type);
                     editDesc.setText(desc);
                     editVer.setText(ver);
-                    getImage();
+                    //getImage();
 
-            //}
-            //else {
-            //    Toast.makeText(VerifyData.this, "Data not found!", Toast.LENGTH_LONG).show();
-            //}
+                    byte[] decodedString = Base64.decode(img, Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    imageView.setImageBitmap(decodedByte);
+
+            }
+            else {
+                Toast.makeText(VerifyData.this, msg, Toast.LENGTH_LONG).show();
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
