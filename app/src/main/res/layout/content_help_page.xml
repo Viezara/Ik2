@@ -1,19 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="#dbe3e3"
+    android:orientation="vertical"
+    app:theme="@style/Theme.Ikode"
     tools:context="com.ikode.viezara.ikode.HelpPage"
     tools:showIn="@layout/activity_help_page">
 
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ikode_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/ikode_bar"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         app:title="Ikode SC Reader" />
         <SearchView
@@ -27,10 +27,10 @@
 
     <ListView
         android:id="@+id/list"
-        android:cacheColorHint="#ff000000"
-        android:background="#dbe3e3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#dbe3e3"
+        android:cacheColorHint="#ff000000">
     </ListView>
 </LinearLayout>
 <!--<relativelayout

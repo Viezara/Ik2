@@ -36,44 +36,55 @@
         android:src="@drawable/set_help" />
 
     <Button
+        android:id="@+id/scanButton"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/scanButton"
-        android:background="@drawable/button_custom1"
+        android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageView2" />
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_custom1" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not yet Registered?"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:id="@+id/checkBox"
-        android:textSize="15dp"
-        android:checked="false"
-        android:layout_row="9"
-        android:layout_column="4"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
         android:layout_below="@+id/scanButton"
-        android:layout_toLeftOf="@+id/imageButton"
-        android:layout_toStartOf="@+id/imageButton"
-        android:layout_marginTop="51dp" />
+        android:background="@drawable/ikodebox"
+        android:orientation="vertical">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I do not want to Register"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:id="@+id/checkBox2"
-        android:textSize="15dp"
-        android:checked="false"
-        android:layout_row="9"
-        android:layout_column="4"
-        android:layout_below="@+id/checkBox"
-        android:layout_centerHorizontal="true" />
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scanButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_toLeftOf="@+id/imageButton"
+            android:layout_toStartOf="@+id/imageButton"
+            android:layout_weight="0"
+            android:checked="false"
+            android:text="Not yet Registered?"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBox"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:checked="false"
+            android:text="I do not want to Register"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dbe3e3"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.RegistrationPage"
     >
@@ -12,48 +14,49 @@
         android:id="@+id/registration_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView16"
         android:background="@drawable/edittext_custom"
         android:drawableLeft="@drawable/emailicon1"
-        android:paddingLeft="20px"
-        android:paddingRight="20px"
         android:ems="10"
-        android:textColor="#ff000000"
         android:hint="  john@ikode.com"
         android:inputType="textEmailAddress"
-        android:layout_below="@+id/textView16"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:paddingLeft="20px"
+        android:paddingRight="30px"
+        android:textColor="#ff000000" />
     <EditText
         android:id="@+id/registration_password"
-        android:paddingLeft="20px"
-        android:paddingRight="20px"
         android:layout_width="match_parent"
-        android:textColor="#ff000000"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/registration_email"
         android:background="@drawable/edittext_custom"
         android:drawableLeft="@drawable/passwordicon1"
         android:ems="10"
         android:hint=" ******"
         android:inputType="textPassword"
-        android:layout_below="@+id/registration_email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <EditText
         android:paddingLeft="20px"
         android:paddingRight="20px"
+        android:textColor="#ff000000" />
+
+    <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ff000000"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/registration_password"
         android:background="@drawable/edittext_custom"
         android:drawableLeft="@drawable/passphrase"
         android:ems="10"
         android:hint=" ID token"
         android:inputType="textVisiblePassword"
         android:nextFocusForward="@+id/signup_btn"
-        android:layout_below="@+id/registration_password"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:textColor="#ff000000" />
 
 
     <Button
@@ -61,37 +64,38 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_signup"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_signup" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="● ID token must be between 8 and 16 characters long"
         android:id="@+id/textView"
-        android:textColor="#ff000000"
-        android:typeface="sans"
-        android:textStyle="bold"
-        android:textSize="12dp"
-
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:text="● ID token must be between 8 and 16 characters long"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Please read our Privacy Policy at this time before you register!"
-        android:drawableLeft="@drawable/ic_info_black_24dp"
-        android:id="@+id/textView16"
-        android:textStyle="bold"
-        android:textSize="12dp"
         android:textColor="#ff000000"
-        android:typeface="sans"
-        android:layout_alignParentTop="true"
+        android:textSize="12dp"
+
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:drawableLeft="@drawable/ic_info_black_24dp"
+        android:text="Please read our Privacy Policy at this time before you register!"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ff000000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
 </RelativeLayout>

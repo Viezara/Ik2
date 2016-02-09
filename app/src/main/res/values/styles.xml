@@ -7,59 +7,24 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
     </style>
-
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="ResultButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
     </style>
-
     <style name="ShareButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-
 <!--    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/ikode_splash</item>
     </style>-->
-    <style name="IkodeToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:textColorPrimary">#FAFAFA</item>
-        <item name="android:textColorSecondary">#FAFAFA</item>
-    </style>
 
-    <style name="Theme.Ikode" parent="@android:style/Theme.Holo.Dialog.NoActionBar">
-    <item name="alertDialog">@style/ikode.dialog</item>
-    </style>
-
-    <style name="ikode.dialog" parent="@android:style/Theme.Holo.Dialog">
-        <item name="android:maxLines">1</item>
-        <item name="android:paddingTop">20dp</item>
-        <item name="android:paddingBottom">16dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:scrollHorizontally">true</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">#ff000000</item>
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:buttonBarStyle">@style/ikode.ButtonBar.Dialog</item>
-    </style>
-
-    <style name="ikode.ButtonBar.Dialog" parent="android:style/Holo.ButtonBar.AlertDialog">
-        <item name="android:background">@drawable/ic_action_about</item>
-        <item name="android:layout_height">@dimen/fab_margin</item>
-        <item name="android:textColor">@color/status_text</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
 </resources>
