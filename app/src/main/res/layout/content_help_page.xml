@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="#dbe3e3"
     android:orientation="vertical"
-    app:theme="@style/Theme.Ikode"
+    app:theme="@style/AppTheme"
     tools:context="com.ikode.viezara.ikode.HelpPage"
     tools:showIn="@layout/activity_help_page">
 

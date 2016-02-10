@@ -204,5 +204,7 @@
     <string name="search_label">search_label</string>
     <string name="search_hint">search_hint</string>
     <string name="settings_description">settings_description</string>
+    <string name="nR">Not yet Registered?</string>
+    <string name="wholeRegister">- Register now to get full access \n to Ikode SC Reader settings and improved features</string>
 
 </resources>

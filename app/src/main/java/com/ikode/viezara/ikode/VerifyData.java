@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,8 +55,7 @@ public class VerifyData extends AppCompatActivity {
         //for toolbar
         Toolbar  actionBarToolBar = (Toolbar) findViewById(R.id.ikode_bar);
         setSupportActionBar(actionBarToolBar);
-        actionBarToolBar.setNavigationIcon(R.drawable.ic_action_camera);
-        actionBarToolBar.setNavigationIcon(R.drawable.ic_action_person);
+
 
 
         Intent intent = getIntent();
@@ -96,6 +97,26 @@ public class VerifyData extends AppCompatActivity {
         });
     }
 
+    //this is for the menu bar for toolbar *gmbg*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    //aries code for getting data images and texts
     private void getData(){
         class GetEmployee extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
@@ -205,5 +226,6 @@ public class VerifyData extends AppCompatActivity {
 
         gi.execute(docId);
     }
+
 
 }

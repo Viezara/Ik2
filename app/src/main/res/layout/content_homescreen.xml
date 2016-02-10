@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dbe3e3"
+
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.homescreen">
+
 
     <ImageView
         android:id="@+id/imageView2"
@@ -15,25 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/globe_less_shadow" />
-    <ImageButton
-        android:id="@+id/imageButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/set_about" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/set_help" />
 
     <Button
         android:id="@+id/scanButton"
@@ -45,29 +29,26 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/button_custom1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignEnd="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="120dp"
         android:layout_below="@+id/scanButton"
-        android:background="@drawable/ikodebox"
-        android:orientation="vertical">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ikodebox">
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scanButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
-            android:layout_toLeftOf="@+id/imageButton"
-            android:layout_toStartOf="@+id/imageButton"
-            android:layout_weight="0"
+            android:layout_marginTop="20dp"
             android:checked="false"
-            android:text="Not yet Registered?"
-            android:textSize="15dp"
+            android:text="@string/nR"
+            android:textSize="10sp"
             android:textStyle="bold"
             android:typeface="sans" />
 
@@ -75,16 +56,77 @@
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBox"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@+id/checkBox2"
+            android:layout_alignStart="@+id/checkBox2"
+            android:layout_below="@+id/checkBox2"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0"
+            android:layout_marginTop="10dp"
             android:checked="false"
             android:text="I do not want to Register"
-            android:textSize="15dp"
+            android:textColor="#ff000000"
+            android:textSize="10sp"
             android:textStyle="bold"
             android:typeface="sans" />
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/checkBox2"
+            android:layout_alignBottom="@+id/checkBox2"
+            android:layout_marginLeft="3dp"
+            android:layout_toEndOf="@+id/checkBox2"
+            android:layout_toRightOf="@+id/checkBox2"
+            android:text="- Register now to get full access"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView17"
+            android:layout_alignRight="@+id/textView17"
+            android:layout_centerVertical="true"
+            android:text="to Ikode SC Reader Settings and improved features."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:drawableLeft="@drawable/ic_action_help"
+        android:text="Help"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView26"
+        android:layout_marginRight="1dp"
+        android:layout_toEndOf="@+id/scanButton"
+        android:layout_toRightOf="@+id/scanButton"
+        android:drawableLeft="@drawable/ic_action_about"
+        android:text="About"
+        android:textAlignment="gravity"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
 
 </RelativeLayout>

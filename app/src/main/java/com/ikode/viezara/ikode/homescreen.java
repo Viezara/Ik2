@@ -6,15 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class homescreen extends AppCompatActivity {
 
     private Button REGISTER_BTN;
     private Button SCAN_BTN;
     private Button LOGIN_BTN;
-    private ImageButton HELP;
-    private ImageButton ABOUT;
+    private TextView HELP;
+    private TextView ABOUT;
     private CheckBox REGISTER_BOX;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class homescreen extends AppCompatActivity {
 //        REGISTER_BTN = (Button) findViewById(R.id.registerBtn);
         SCAN_BTN  = (Button) findViewById(R.id.scanButton);
 //        LOGIN_BTN =(Button) findViewById(R.id.btnLogin);
-        HELP = (ImageButton) findViewById(R.id.imageButton2);
-        ABOUT = (ImageButton) findViewById(R.id.imageButton);
+        HELP = (TextView) findViewById(R.id.textView26);
+        ABOUT = (TextView) findViewById(R.id.textView27);
 
        REGISTER_BOX.setOnClickListener(new View.OnClickListener() {
            @Override
