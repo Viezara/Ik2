@@ -120,9 +120,10 @@
             android:name=".homescreen"
             android:label="string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <action android:name="android.intent.action.homescreen" />
-
-            <category android:name="android.intent.category.DEFAULT" />
+            <intent-filter>
+                <action android:name="android.intent.action.homescreen" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".RegistrationPage"
