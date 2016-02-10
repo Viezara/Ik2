@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#DBE3E3"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.SplashActivity"
@@ -15,56 +11,56 @@
 
 
     <ImageView
+        android:id="@+id/imageView15"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/imageView15"
         android:layout_alignParentTop="true"
-        android:background="@drawable/ikodeglobe"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ikodeglobe" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/imageView15"
-        android:background="@drawable/license1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/license1" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView31"
-        android:layout_below="@+id/imageView30"
-        android:background="@drawable/fraudhash"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
-
-    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView39"
-        android:layout_below="@+id/imageView31"
-        android:background="@drawable/quote"
+        android:layout_below="@+id/imageView30"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="48dp"
+        android:background="@drawable/fraudhash" />
+
+    <ImageView
+        android:id="@+id/imageView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView31"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/quote" />
 
     <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="300dp"
         android:layout_height="20dp"
-        android:id="@+id/progressBar"
         android:layout_alignParentBottom="true"
-        style="?android:attr/progressBarStyleHorizontal"
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="● ID token must be between 8 and 16 characters long"
-        android:id="@+id/textView"
-        android:textSize="10dp"
         android:layout_above="@+id/progressBar"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="● ID token must be between 8 and 16 characters long"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10dp" />
 
 
 </RelativeLayout>
