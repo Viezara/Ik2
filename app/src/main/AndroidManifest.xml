@@ -61,7 +61,8 @@
         android:icon="@drawable/ikodeglobe"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/AppTheme.NoActionBar">
+        <!-- //previously this is Theme.AppCompat// -->
 
         <!-- //facebook// -->
         <meta-data
