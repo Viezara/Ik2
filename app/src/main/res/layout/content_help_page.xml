@@ -30,7 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#dbe3e3"
-        android:cacheColorHint="#ff000000">
+        android:cacheColorHint="#ff000000"
+        android:listSelector="@color/colorPrimaryDark">
     </ListView>
 </LinearLayout>
 <!--<relativelayout
