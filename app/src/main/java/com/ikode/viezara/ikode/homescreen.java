@@ -68,7 +68,8 @@ public class homescreen extends AppCompatActivity {
         ABOUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toHelp = new Intent("android.intent.action.AboutUs");
+//                Intent toHelp = new Intent("android.intent.action.AboutUs");
+                Intent toHelp = new Intent("android.intent.action.VerifyData");
                 startActivity(toHelp);
 
             }
