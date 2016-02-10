@@ -58,9 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/progressBar"
         android:layout_centerHorizontal="true"
-        android:text="● ID token must be between 8 and 16 characters long"
+        android:text="● Initializing the IkodeSC Reader. This may take a few seconds."
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="10dp" />
-
-
 </RelativeLayout>
