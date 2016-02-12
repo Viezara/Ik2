@@ -9,7 +9,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/action_profile"
         android:icon="@drawable/ic_action_person"
         android:menuCategory="secondary"
         android:orderInCategory="1"

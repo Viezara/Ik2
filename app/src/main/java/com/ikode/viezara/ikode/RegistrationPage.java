@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,10 +58,15 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
         TXTPHRASE = (EditText) findViewById(R.id.editText);
         //HELPBUTTON = (ImageButton) findViewById(R.id.imageButton3);
 
+        String sp = "Please read our Privacy Policy at this time before you register!";
 
-        SpannableString policy = new SpannableString("Please read our Privacy Policy at this time before you register!");
-        policy.setSpan(new ForegroundColorSpan(Color.CYAN), 16,29, 0);
-        policy.setSpan(new RelativeSizeSpan(1.5f), 6, 11, 0);
+        TextView pText = (TextView) findViewById(R.id.textView16);
+
+
+        SpannableString policyText = new SpannableString(sp);
+        policyText.setSpan(new ForegroundColorSpan(Color.rgb(0, 127, 127)), 16,30, 0);
+        policyText.setSpan(new UnderlineSpan(), 16, 30, 0);
+        pText.setText(policyText);
 
 //        cancel.setOnClickListener(this);
 
