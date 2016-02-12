@@ -99,7 +99,7 @@ public class HelpPage extends AppCompatActivity {
                 tx.setText(titleValue);
                 tx.setGravity(Gravity.TOP);
 
-                new AlertDialog.Builder(HelpPage.this, R.style.Theme_Ikode_Dialog_Alert).setTitle("MESSAGE").setMessage("CONTENT: ").setView(tx).setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(HelpPage.this).setTitle("MESSAGE").setMessage("CONTENT: ").setView(tx).setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
 
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

@@ -16,7 +16,6 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/globe_less_shadow" />
 
-
     <Button
         android:id="@+id/scanButton"
         style="?android:attr/buttonStyleSmall"
@@ -28,12 +27,13 @@
         android:background="@drawable/button_custom1" />
 
     <RelativeLayout
-        android:layout_width="280dp"
+        android:layout_width="320dp"
         android:layout_height="120dp"
         android:layout_below="@+id/scanButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ikodebox">
+        android:background="@drawable/ikodebox"
+        android:id="@+id/relativeLayout">
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -60,7 +60,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginTop="10dp"
             android:checked="false"
-            android:text="I do not want to Register"
+            android:text="I do not want to Register."
             android:textColor="#ff000000"
             android:textSize="10sp"
             android:textStyle="bold"
@@ -114,17 +114,15 @@
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView26"
-        android:layout_marginRight="1dp"
-        android:layout_toEndOf="@+id/scanButton"
-        android:layout_toRightOf="@+id/scanButton"
         android:drawableLeft="@drawable/ic_action_about"
+        android:paddingRight="5dp"
         android:text="About"
-        android:textAlignment="gravity"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:typeface="sans" />
-
+        android:typeface="sans"
+        android:layout_alignTop="@+id/textView26"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -18,13 +18,15 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.GET_REAL_TASKS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--<receiver android:name=".receiver.NetworkStateChangeReceiver">
+    <!--
+    <receiver android:name=".receiver.NetworkStateChangeReceiver">
         <intent-filter>
             <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
         </intent-filter>
-    </receiver>-->
+    </receiver>
+    -->
 
     <supports-screens
         android:anyDensity="true"
@@ -62,7 +64,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
         <!-- //previously this is Theme.AppCompat// -->
+
 
         <!-- //facebook// -->
         <meta-data
@@ -84,6 +88,7 @@
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.CAPTURE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -123,6 +128,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.homescreen" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -132,6 +138,7 @@
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.REGISTRATION" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -141,15 +148,18 @@
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.UserConnect" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutUs"
+        <activity
+            android:name=".AboutUs"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.AboutUs"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.AboutUs" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -167,16 +177,15 @@
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!--//test for connection check-->
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <!-- //test for connection check -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".UserChoice"
             android:label="@string/app_name"
@@ -203,8 +212,10 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.UserProfile" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UserProfile" />
@@ -215,13 +226,14 @@
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.HelpPage" />
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <!--//TEST ONLY*/-->
+            <!-- //TEST ONLY*/ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UserProfile" />
-            <!--//TEST ONLY*/-->
+            <!-- //TEST ONLY*/ -->
 
             <meta-data
                 android:name="android.app.searchable"
@@ -236,26 +248,30 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!--<activity
+        <!--
+            <activity
             android:name="com.ikode.fragments.SecureDataStore"
             android:label="@string/title_activity_secure_data_store"
-            android:theme="@style/AppTheme.NoActionBar" />-->
+            android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity
             android:name=".InboxList"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".SecureStoreActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SecureStoreActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.SecureStoreActivity"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.SecureStoreActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
-
-
+        <activity
+            android:name=".PrivacyPolicy"
+            android:label="@string/title_activity_privacy_policy"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

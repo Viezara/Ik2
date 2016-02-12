@@ -1,7 +1,11 @@
 package com.ikode.viezara.ikode;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 
 
@@ -21,6 +25,10 @@ public class Settings1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings1);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.ikode_bar);
+        setSupportActionBar(toolbar);
+
 /*
         if(RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
             //doneText = (TextView) findViewById(R.id.tvDone);
@@ -43,23 +51,29 @@ public class Settings1 extends AppCompatActivity {
             startActivity(TO_LOGIN);
         }*/
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    } // END onCreateOptionsMenu
+
+
+    //for toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
