@@ -14,7 +14,6 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -56,28 +55,26 @@ public class VerifyData extends AppCompatActivity {
         Toolbar  actionBarToolBar = (Toolbar) findViewById(R.id.ikode_bar);
         setSupportActionBar(actionBarToolBar);
 
-
-
         Intent intent = getIntent();
 
         id = intent.getStringExtra(RequestData.barcode_ID);
 
-        Toast.makeText(VerifyData.this, id, Toast.LENGTH_LONG);
+        Toast.makeText(VerifyData.this, id, Toast.LENGTH_LONG).show();
 
         editDataId = (EditText) findViewById(R.id.editDataId);
         editDataType = (EditText) findViewById(R.id.editDataType);
         editDesc = (EditText) findViewById(R.id.editDesc);
         editVer = (EditText) findViewById(R.id.editVer);
         imageView  = (ImageView) findViewById(R.id.imageView);
-        buttonSets = (Button) findViewById(R.id.settButt);
-        buttonSave = (Button) findViewById(R.id.saveButt);
+//        buttonSets = (Button) findViewById(R.id.settButt);
+//        buttonSave = (Button) findViewById(R.id.saveButt);
 
         editDataId.setText(id);
 
         SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
         String uname = SP.getString(RequestData.SESSION_CODE, RequestData.DEFAULT_SESSION_VALUE);
 
-        if(uname.equals(RequestData.DEFAULT_SESSION_VALUE)){
+       /* if(uname.equals(RequestData.DEFAULT_SESSION_VALUE)){
             buttonSets.setVisibility(View.GONE);
             buttonSave.setVisibility(View.GONE);
         }
@@ -94,7 +91,7 @@ public class VerifyData extends AppCompatActivity {
 
 
 
-        });
+        });*/
     }
 
     //this is for the menu bar for toolbar *gmbg*

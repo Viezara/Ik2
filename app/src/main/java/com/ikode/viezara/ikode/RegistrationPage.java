@@ -5,9 +5,13 @@ import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +35,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
     private Button SIGNUP_BTN;
     private String MOBILE_NUMBER = "";
     private String VERIFICATION_TYPE = "";
-    private TextView cancel;
+    private TextView cancel, policy;
     private ImageButton HELPBUTTON;
 
     private String security_code="";
@@ -45,12 +49,19 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
         setContentView(R.layout.content_registration_page);
         FacebookSdk.sdkInitialize(getApplicationContext());
 
+        policy = (TextView) findViewById(R.id.textView16);
+
         EMAIL = (EditText) findViewById(R.id.registration_email);
         PASSWORD = (EditText) findViewById(R.id.registration_password);
         SIGNUP_BTN = (Button) findViewById(R.id.signup_btn);
 //        cancel = (TextView) findViewById(R.id.textView2);
         TXTPHRASE = (EditText) findViewById(R.id.editText);
         //HELPBUTTON = (ImageButton) findViewById(R.id.imageButton3);
+
+
+        SpannableString policy = new SpannableString("Please read our Privacy Policy at this time before you register!");
+        policy.setSpan(new ForegroundColorSpan(Color.CYAN), 16,29, 0);
+        policy.setSpan(new RelativeSizeSpan(1.5f), 6, 11, 0);
 
 //        cancel.setOnClickListener(this);
 

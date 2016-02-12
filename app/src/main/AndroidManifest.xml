@@ -271,7 +271,9 @@
         <activity
             android:name=".PrivacyPolicy"
             android:label="@string/title_activity_privacy_policy"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

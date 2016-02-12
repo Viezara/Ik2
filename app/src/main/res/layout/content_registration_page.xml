@@ -65,12 +65,12 @@
     <Button
         android:id="@+id/signup_btn"
         style="?android:attr/buttonStyleSmall"
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_signup"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_signup" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textView"
@@ -93,11 +93,29 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:drawableLeft="@drawable/ic_info_black_24dp"
-        android:text="Please read our Privacy Policy at this time before you register!"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
         android:textColor="#ff000000"
         android:textSize="12dp"
         android:textStyle="bold"
-        android:typeface="sans" />
+        android:typeface="sans"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I like to receive information about Ikode deployment or associated counter-fraud services"
+        android:layout_marginTop="15dp"
+        android:id="@+id/checkBox3"
+        android:textColor="#ff000000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:checked="true"
+        android:layout_below="@+id/signup_btn"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
 </RelativeLayout>
