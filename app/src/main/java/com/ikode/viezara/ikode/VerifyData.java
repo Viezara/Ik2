@@ -53,7 +53,7 @@ public class VerifyData extends AppCompatActivity {
         setContentView(R.layout.activity_verify_data);
 
         //for toolbar
-        Toolbar  actionBarToolBar = (Toolbar) findViewById(R.id.ikode_bar);
+       Toolbar  actionBarToolBar = (Toolbar) findViewById(R.id.ikode_bar);
         setSupportActionBar(actionBarToolBar);
 
         Intent intent = getIntent();
