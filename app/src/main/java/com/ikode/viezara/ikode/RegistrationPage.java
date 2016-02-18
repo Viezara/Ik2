@@ -10,6 +10,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
@@ -62,11 +65,22 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
 
         TextView pText = (TextView) findViewById(R.id.textView16);
 
-
         SpannableString policyText = new SpannableString(sp);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View policy) {
+                startActivity(new Intent(RegistrationPage.this, PrivacyPolicy.class));
+
+            }
+        };
+        policyText.setSpan(clickableSpan, 16, 30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         policyText.setSpan(new ForegroundColorSpan(Color.rgb(0, 127, 127)), 16,30, 0);
         policyText.setSpan(new UnderlineSpan(), 16, 30, 0);
         pText.setText(policyText);
+        pText.setMovementMethod(LinkMovementMethod.getInstance());
+        pText.setHighlightColor(Color.TRANSPARENT);
+
+
 
 //        cancel.setOnClickListener(this);
 
