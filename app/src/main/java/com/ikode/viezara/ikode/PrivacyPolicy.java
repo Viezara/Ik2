@@ -6,6 +6,12 @@ import android.os.Bundle;
 
 public class PrivacyPolicy extends Activity {
 
+
+
+    public String testName;
+    private boolean debugging = false;
+    private int cacheConfig = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +30,10 @@ public class PrivacyPolicy extends Activity {
 
 
 
-
-
-
+    }
 
 
     }
 
-}
+
+
