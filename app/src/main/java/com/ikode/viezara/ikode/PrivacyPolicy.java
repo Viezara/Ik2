@@ -3,12 +3,12 @@ package com.ikode.viezara.ikode;
 import android.app.Activity;
 import android.os.Bundle;
 
+
 public class PrivacyPolicy extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.content_privacy_policy);
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
@@ -21,6 +21,14 @@ public class PrivacyPolicy extends Activity {
                         .setAction("Action", null).show();
             }
         });*/
+
+
+
+
+
+
+
+
     }
 
 }
