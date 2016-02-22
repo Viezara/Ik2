@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     app:theme="@style/AppTheme"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.PrivacyPolicy">
@@ -23,7 +25,6 @@
         android:layout_below="@+id/ikode_bar"
         android:id="@+id/scrollView"
         android:background="#dbe3e3"
-
         android:fillViewport="false">
 
    <LinearLayout

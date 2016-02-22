@@ -20,7 +20,7 @@
             android:title="Reports"/>
         <item android:id="@+id/navigation_item_4"
             android:icon="@drawable/ic_action_settings"
-            android:title="User Settings"/>
+            android:title="Settings"/>
     </group>
     <group android:id="@+id/group_3"
         android:checkableBehavior="single">

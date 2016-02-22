@@ -12,6 +12,7 @@
         android:id="@+id/imageView2"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_marginTop="16dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/ikodeglobe" />
@@ -26,14 +27,19 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/button_custom1" />
 
+
+
+
+
+
     <RelativeLayout
         android:layout_width="320dp"
         android:layout_height="120dp"
-        android:layout_below="@+id/scanButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:background="@drawable/ikodebox"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/relativeLayout"
+        android:layout_above="@+id/textView26"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp">
 
         <CheckBox
             android:id="@+id/checkBox2"
@@ -124,5 +130,30 @@
         android:layout_alignTop="@+id/textView26"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:text="SCAN RFID"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:id="@+id/button3"
+        android:background="@drawable/buttonshape"
+        android:layout_below="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:id="@+id/button2"
+        android:text="SCAN NFC"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:background="@drawable/buttonshape"
+        android:layout_below="@+id/scanButton"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

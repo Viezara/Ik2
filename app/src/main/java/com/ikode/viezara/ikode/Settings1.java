@@ -1,20 +1,22 @@
 package com.ikode.viezara.ikode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
-
-
+import android.widget.TextView;
 
 
 public class Settings1 extends AppCompatActivity {
 
     //private TextView doneText;
     private ImageButton bProf, bReport, bDataStore;
+    private TextView HELP, ABOUT;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -28,6 +30,28 @@ public class Settings1 extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.ikode_bar);
         setSupportActionBar(toolbar);
+
+        HELP = (TextView) findViewById(R.id.textView44_help);
+        ABOUT = (TextView) findViewById(R.id.textView45_about);
+
+        HELP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent TO_HELP = new Intent("android.intent.action.HelpPage");
+                startActivity(TO_HELP);
+            }
+        });
+
+        ABOUT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent TO_ABOUT = new Intent("android.intent.action.AboutUs");
+                startActivity(TO_ABOUT);
+
+            }
+        });
+
+
 
 /*
         if(RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){

@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     android:background="#dbe3e3"
     android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     app:theme="@style/AppTheme"
     tools:context="com.ikode.viezara.ikode.HelpPage"
     tools:showIn="@layout/activity_help_page">
