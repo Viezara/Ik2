@@ -46,11 +46,16 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
     private String input_email="";
     private String input_phrase="";
     private String Security_Code="";
+    LoginDataBaseAdapter loginDataBaseAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_registration_page);
         FacebookSdk.sdkInitialize(getApplicationContext());
+
+        // create a instance of SQLite Database
+        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter=loginDataBaseAdapter.open();
 
         policy = (TextView) findViewById(R.id.textView16);
 
@@ -87,31 +92,27 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
         SIGNUP_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    input_password = PASSWORD.getText().toString().trim();
+                    input_email = EMAIL.getText().toString().trim();
+                    input_phrase = TXTPHRASE.getText().toString().trim();
+                    if (isValid(input_email) == true) {
+                        if (isEmpty(input_password) == false) {
+                            if(RequestData.accepted_Privacy == false)
+                            {
+                                Toast.makeText(getApplicationContext(), "Unable to register,. Please read our Privacy Policy.", Toast.LENGTH_LONG).show();
+                            }
+                            else {
 
-                getVerificationDetails();
-
-                /*
-                Intent VERIFICATION_PAGE = new Intent("android.intent.action.VERIFICATION");
-                VERIFICATION_PAGE.putExtra("Verification_Type", VERIFICATION_TYPE);
-                startActivity(VERIFICATION_PAGE);*/
-
-                input_password = PASSWORD.getText().toString().trim();
-                input_email = EMAIL.getText().toString().trim();
-                input_phrase = TXTPHRASE.getText().toString().trim();
-                if (isValid(input_email) == true) {
-                    if (isEmpty(input_password) == false) {
-                        addCode();
-                        //Intent intent = new Intent("android.intent.action.VERIFICATION");
-                        //intent.putExtra(RequestData.verification_code, MOBILE_NUMBER);
-                        //startActivity(intent);
-
+                                getVerificationDetails();
+                                addCode();
+                            }
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Password is empty", Toast.LENGTH_LONG).show();
+                        }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Password is empty", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "User email is invalid", Toast.LENGTH_LONG).show();
+                        EMAIL.requestFocus();
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG).show();
-                    EMAIL.requestFocus();
-                }
 
             }
         });
@@ -149,6 +150,10 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                         .setAction("Action", null).show();
             }
         });*/
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
     }
     //Onclick TextView
     public void onClick(View v) {
@@ -265,12 +270,17 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                 String msg = jsonObject.getString(RequestData.TAG_Message);
                 if(error.equals("false"))
                 {
+                    RequestData.accepted_Privacy=false;
                     Toast.makeText(RegistrationPage.this, msg, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent("android.intent.action.VERIFICATION");
                     intent.putExtra("serial", MOBILE_NUMBER);
                     intent.putExtra("phrase", TXTPHRASE.getText().toString());
                     //intent.putExtra(RequestData.display_code, Code);
                     startActivity(intent);
+
+                    loginDataBaseAdapter.insertEntry(input_email,  " ");
+
+                    onBackPressed();
                 }
                 else
                 {

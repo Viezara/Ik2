@@ -194,6 +194,7 @@ public class UserConnect extends Activity {
                 Toast.makeText(UserConnect.this, msg, Toast.LENGTH_LONG).show();
                 Intent userChoice = new Intent("android.intent.action.UserProfile");//changed this to User Profile
                 startActivity(userChoice);
+                onBackPressed();
             }
             else
             {
@@ -204,6 +205,10 @@ public class UserConnect extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
 }

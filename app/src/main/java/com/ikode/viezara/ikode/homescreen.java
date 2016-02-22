@@ -16,6 +16,7 @@ public class homescreen extends AppCompatActivity {
     private TextView HELP;
     private TextView ABOUT;
     private CheckBox REGISTER_BOX;
+    private View mViewOption;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,21 +27,32 @@ public class homescreen extends AppCompatActivity {
 //        REGISTER_BTN = (Button) findViewById(R.id.registerBtn);
         SCAN_BTN  = (Button) findViewById(R.id.scanButton);
 //        LOGIN_BTN =(Button) findViewById(R.id.btnLogin);
+        View mViewOption = (View)findViewById(R.id.relativeLayout);
         HELP = (TextView) findViewById(R.id.textView26);
         ABOUT = (TextView) findViewById(R.id.textView27);
+        if (getIntent().getBooleanExtra("EXIT", false))
+        {
+            finish();
+        }
 
-       REGISTER_BOX.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        if (RequestData.user_Registered.equals("false")) {
+            REGISTER_BOX.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-               if (REGISTER_BOX.isChecked()){
-                   Intent TO_REGISTRATION = new Intent("android.intent.action.REGISTRATION");
-                   startActivity(TO_REGISTRATION);
-               }
+                    if (REGISTER_BOX.isChecked()) {
+                        Intent TO_REGISTRATION = new Intent("android.intent.action.REGISTRATION");
+                        startActivity(TO_REGISTRATION);
+                    }
 
-           }
-        });
+                }
+            });
 
+        }
+        else
+        {
+            mViewOption.setVisibility(View.GONE);
+        }
         SCAN_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

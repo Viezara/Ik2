@@ -35,7 +35,7 @@ public class VerifyData extends AppCompatActivity {
     private ImageView imageView;
     private Button buttonSets, buttonSave;
     private SharedPreferences SP;
-
+    private boolean save_Docs =false;
     //for Toolbar
     private Toolbar toolbar;
 
@@ -45,12 +45,20 @@ public class VerifyData extends AppCompatActivity {
 
     private String JSON_STRING;
 
+    LoginDataBaseAdapter loginDataBaseAdapter;
 
+    private String sql_id="";
+    private String sql_type="";
+    private String sql_desc="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_data);
+
+        // create a instance of SQLite Database
+        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter=loginDataBaseAdapter.open();
 
         //for toolbar
        Toolbar  actionBarToolBar = (Toolbar) findViewById(R.id.ikode_bar);
@@ -88,6 +96,18 @@ public class VerifyData extends AppCompatActivity {
 
                 Intent TO_SETTINGS = new Intent("android.intent.action.Settings1");
                 startActivity(TO_SETTINGS);
+            }
+
+
+        });
+
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    if(save_Docs==true){
+                        String insert_Response = loginDataBaseAdapter.insertScan(sql_id, sql_type, sql_desc);
+                        Toast.makeText(VerifyData.this, insert_Response, Toast.LENGTH_LONG).show();
+                    }
             }
 
 
@@ -176,9 +196,16 @@ public class VerifyData extends AppCompatActivity {
                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                     imageView.setImageBitmap(decodedByte);
 
+                    //sqlite data
+                    sql_id = dataId;
+                    sql_type = type;
+                    sql_desc = desc;
+                    save_Docs=true;
+
             }
             else {
                 Toast.makeText(VerifyData.this, msg, Toast.LENGTH_LONG).show();
+                save_Docs=false;
             }
         } catch (JSONException e) {
             e.printStackTrace();

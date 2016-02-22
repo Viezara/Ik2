@@ -77,6 +77,10 @@ public class PhoneVerification extends Activity{
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
     //check security code
     private boolean isEmpty(String scode) {
         if (scode.toString().trim().length() > 0) {
@@ -89,6 +93,7 @@ public class PhoneVerification extends Activity{
         if ( (SecurityCode.equals(convertPhrase))) {Toast.makeText(getApplicationContext(), "User Credential is Verified!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent("android.intent.action.UserProfile");
             startActivity(intent);
+            onBackPressed();
         } else {
             Toast.makeText(getApplicationContext(), "Verification failed: Code is Incorrect or Expired ", Toast.LENGTH_LONG).show();
         }

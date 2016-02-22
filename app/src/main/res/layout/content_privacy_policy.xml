@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AppTheme"
+    app:theme="@style/AppTheme"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ikode.viezara.ikode.PrivacyPolicy"
-    >
+    tools:context="com.ikode.viezara.ikode.PrivacyPolicy">
     <!--<android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -24,6 +23,7 @@
         android:layout_below="@+id/ikode_bar"
         android:id="@+id/scrollView"
         android:background="#dbe3e3"
+
         android:fillViewport="false">
 
    <LinearLayout
@@ -297,24 +297,17 @@
            android:layout_height="wrap_content"
            android:text="@string/country"/>
 
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="CANCEL"
+           android:id ="@+id/btnCancel"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="ACCEPT"
+           android:id ="@+id/btnAccept"/>
 
 
    </LinearLayout>
