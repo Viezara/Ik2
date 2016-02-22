@@ -29,7 +29,7 @@
         android:layout_below="@+id/ikode_bar"
         android:layout_marginTop="40dp"
         android:background="@drawable/edittext_custom"
-        android:drawableLeft="@drawable/emailicon1"
+        android:drawableLeft="@drawable/idtk"
         android:ems="10"
         android:hint=" ******"
         android:inputType="textEmailAddress"
