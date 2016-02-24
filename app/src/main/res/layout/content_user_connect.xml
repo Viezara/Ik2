@@ -12,41 +12,45 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:id="@+id/idToken"
         android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="20sp"
         android:text="●Enter your complete ID Token"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignEnd="@+id/password"
         android:layout_alignLeft="@+id/password"
         android:layout_alignRight="@+id/password"
         android:layout_alignStart="@+id/password"
-        android:layout_below="@+id/ikode_bar"
-        android:layout_marginTop="40dp"
+        android:layout_below="@+id/idToken"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edittext_custom"
-        android:drawableLeft="@drawable/idtk"
+        android:drawableLeft="@drawable/ic_token_logo"
         android:ems="10"
         android:hint=" ******"
-        android:inputType="textEmailAddress"
         android:paddingLeft="5dp"
         android:textColor="#ff000000" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/username"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/edittext_custom"
-        android:drawableLeft="@drawable/passphrase"
+        android:drawableLeft="@drawable/ic_passphrase"
         android:ems="10"
         android:hint=" ******"
         android:inputType="textPassword"
@@ -65,24 +69,37 @@
          android:layout_alignLeft="@+id/connect_btn"
          android:layout_alignStart="@+id/connect_btn" />-->
 
-    <Button
-        android:id="@+id/button6"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/connect_btn"
-        android:layout_alignStart="@+id/connect_btn"
-        android:layout_below="@+id/connect_btn"
-        android:background="@drawable/button_forgpw" />
+
 
     <Button
-        android:id="@+id/connect_btn"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/connectBtn"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_connect" />
+        android:text="CONNECT"
+        android:typeface="sans"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#dbe3e3"
+        android:textSize="14sp"
+        android:background="@drawable/button_shadow"
+        android:layout_below="@+id/password"
+        android:layout_alignLeft="@+id/forgotToken"
+        android:layout_alignStart="@+id/forgotToken" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/forgotToken"
+        android:text="FORGOT ID TOKEN"
+        android:layout_marginTop="10dp"
+        android:typeface="sans"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#dbe3e3"
+        android:textSize="14sp"
+        android:background="@drawable/button_shadow"
+        android:layout_below="@+id/connectBtn"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

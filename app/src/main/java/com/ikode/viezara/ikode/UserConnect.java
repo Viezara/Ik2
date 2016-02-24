@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -30,18 +31,94 @@ public class UserConnect extends Activity {
     private Button FORGOTPASSWORD;
 
 
+    //code from Phone Verification.Java
+    private EditText txtSecurityCode;
+    private String Phrase;
+    private String PhoneNumber,SecurityCode;
+    private String convertPhrase="";
+    private StringBuilder sb;
+    private TextView codeHandler;
+    private String Security_Code="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_user_connect);
-        USERNAME = (EditText) findViewById(R.id.username);
-        PASSWORD = (EditText) findViewById(R.id.password);
-        CONNECT = (Button) findViewById(R.id.connect_btn);
+
+        //original code from Aries and Demy
+//        USERNAME = (EditText) findViewById(R.id.username);
+//        PASSWORD = (EditText) findViewById(R.id.password);
+        CONNECT = (Button) findViewById(R.id.connectBtn);
 //        cancel = (TextView) findViewById(R.id.textView5);
-        FORGOTPASSWORD = (Button) findViewById(R.id.button6);
+        FORGOTPASSWORD = (Button) findViewById(R.id.forgotToken);
+
+
+
+        //for passphrase change code
+        txtSecurityCode = (EditText) findViewById(R.id.password);
+        Intent intent = getIntent();
+        PhoneNumber = intent.getStringExtra("serial");
+        Phrase = intent.getStringExtra("phrase");
+        Security_Code = intent.getStringExtra(RequestData.display_code);
+        codeHandler = (TextView) findViewById(R.id.username);
+        //codeHandler.setText(Phrase);
+        convertPhrase=Phrase.toString();
+        int str_len = (Phrase.toString().length()/2);
+        sb = new StringBuilder(Phrase.toString());
+        for (int index = str_len; index < sb.length(); index++) {
+            if (sb.charAt(index) == ' ') {
+            } else {
+                sb.setCharAt(index, '*');
+            }
+        }
+        codeHandler.setText(sb.toString());
+
+
+        CONNECT.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                SecurityCode = txtSecurityCode.getText().toString();
+
+                if (isEmpty(SecurityCode) == false) {
+
+                    SharedPreferences.Editor editor = SP.edit();
+                    editor.putString(RequestData.SESSION_CODE, USERNAME.getText().toString());
+                    editor.commit();
+
+                    //getData();
+                    verify();
+                    connectUser();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please enter security code or code sent to your email", Toast.LENGTH_LONG).show();
+                }
+            }
+
+        });
+
+
+
+
+
         SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
 
         if(!RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
+
+
+        } else {
+            Intent TO_USERCONNECT = new Intent(this, UserProfile.class);
+            startActivity(TO_USERCONNECT);
+        }
+    }
+
+    private void verify(){
+        if ( (SecurityCode.equals(convertPhrase))) {Toast.makeText(getApplicationContext(), "User Credential is Verified!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent("android.intent.action.UserProfile");
+            startActivity(intent);
+            onBackPressed();
+        } else {
+            Toast.makeText(getApplicationContext(), "Verification failed: Code is Incorrect or Expired ", Toast.LENGTH_LONG).show();
+        }
+    }
 
            /* cancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -51,7 +128,7 @@ public class UserConnect extends Activity {
                 }
             });*/
 
-            CONNECT.setOnClickListener(new View.OnClickListener() {
+           /* CONNECT.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -75,7 +152,7 @@ public class UserConnect extends Activity {
                     }
 
                 }
-            });
+            });*/
 
 
             /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -89,11 +166,7 @@ public class UserConnect extends Activity {
                             .setAction("Action", null).show();
                 }
             });*/
-        } else {
-            Intent TO_USERCONNECT = new Intent(this, UserProfile.class);
-            startActivity(TO_USERCONNECT);
-        }
-    }
+
 
    /* @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

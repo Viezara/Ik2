@@ -29,38 +29,41 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/relativeLayoutGlobe"
         android:id="@+id/relativeLayoutscans"
-        >
+        android:layout_below="@+id/relativeLayoutGlobe"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
+            android:id="@+id/scanButton"
             android:layout_width="150dp"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:text="SCAN CODE"
-            android:typeface="monospace"
-            android:textAlignment="center"
+            android:icon="@drawable/ic_autofocus"
+            android:typeface="sans"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
             android:textSize="14sp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/buttonshape"
-            />
+            android:background="@drawable/button_shadow"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2" />
 
         <Button
             android:layout_width="150dp"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:text="SCAN RFID"
-            android:typeface="monospace"
-            android:textAlignment="center"
+            android:typeface="sans"
+            android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
             android:textSize="14sp"
             android:id="@+id/button3"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/button_shadow"
             android:layout_below="@+id/button2"
@@ -69,33 +72,54 @@
 
         <Button
             android:layout_width="150dp"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:id="@+id/button2"
             android:text="SCAN NFC"
-            android:typeface="monospace"
-            android:textAlignment="center"
+            android:typeface="sans"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
             android:textSize="14sp"
-            android:background="@drawable/buttonshape"
+            android:background="@drawable/button_shadow"
             android:layout_below="@+id/scanButton"
             android:layout_centerHorizontal="true" />
 
-        <Button
-            android:id="@+id/scanButton"
-            style="?android:attr/buttonStyleSmall"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/button_custom1" />
+            android:id="@+id/imageView8"
+            android:background="@drawable/ic_nfc_signal"
+            android:layout_below="@+id/scanButton"
+            android:layout_toLeftOf="@+id/scanButton"
+            android:layout_toStartOf="@+id/scanButton" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView9"
+            android:background="@drawable/ic_rfid"
+            android:layout_below="@+id/button2"
+            android:layout_alignLeft="@+id/imageView8"
+            android:layout_alignStart="@+id/imageView8" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_qrbig"
+            android:id="@+id/imageView6"
+            android:layout_alignBottom="@+id/scanButton"
+            android:layout_alignLeft="@+id/imageView8"
+            android:layout_alignStart="@+id/imageView8" />
+
+
     </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="320dp"
         android:layout_height="120dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/ikodebox"
         android:id="@+id/relativeLayout"
         android:layout_below="@+id/relativeLayoutscans"
