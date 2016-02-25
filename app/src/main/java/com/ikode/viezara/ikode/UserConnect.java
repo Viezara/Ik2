@@ -80,22 +80,18 @@ public class UserConnect extends Activity {
                 SecurityCode = txtSecurityCode.getText().toString();
 
                 if (isEmpty(SecurityCode) == false) {
-
                     SharedPreferences.Editor editor = SP.edit();
                     editor.putString(RequestData.SESSION_CODE, USERNAME.getText().toString());
                     editor.commit();
 
                     //getData();
                     verify();
-                    connectUser();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please enter security code or code sent to your email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please enter security code before you can Login", Toast.LENGTH_LONG).show();
                 }
             }
 
         });
-
-
 
 
 

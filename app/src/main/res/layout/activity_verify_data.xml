@@ -28,6 +28,9 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:text="Data ID"
+        android:textColor="#ff000000"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:layout_below="@+id/linearLayout8"
         android:layout_alignLeft="@+id/editDataId"
         android:layout_alignStart="@+id/editDataId"
@@ -38,7 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:enabled="false"
+        android:textColor="#ff000000"
         android:id="@+id/editDataId"
         android:layout_below="@+id/textView22"
         />
@@ -47,18 +53,24 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:text="Data Type"
         android:layout_below="@+id/editDataId"
-        android:id="@+id/textView23" />
+        android:id="@+id/textView23"
+        android:textColor="#ff000000"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:id="@+id/editDataType"
         android:layout_below="@+id/textView23"
+        android:textColor="#ff000000"
         />
 
     <TextView
@@ -66,20 +78,29 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:text="Description"
+        android:textColor="#ff000000"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:id="@+id/editDesc"
+        android:textColor="#ff000000"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Version"
+        android:textStyle="normal"
+        android:typeface="sans"
+        android:textColor="#ff000000"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:id="@+id/textView24" />
@@ -89,6 +110,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:textColor="#ff000000"
+        android:textStyle="normal"
+        android:typeface="sans"
         android:enabled="false"
         android:id="@+id/editVer"
         />
