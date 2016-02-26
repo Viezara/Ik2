@@ -29,6 +29,8 @@ public class UserConnect extends Activity {
     //private TextView cancel;
     private SharedPreferences SP;
     private Button FORGOTPASSWORD;
+    private String VerifiedCode;
+    private String PhoneSerial;
 
 
     //code from Phone Verification.Java
@@ -44,7 +46,6 @@ public class UserConnect extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_user_connect);
-
         //original code from Aries and Demy
 //        USERNAME = (EditText) findViewById(R.id.username);
 //        PASSWORD = (EditText) findViewById(R.id.password);
@@ -52,40 +53,44 @@ public class UserConnect extends Activity {
 //        cancel = (TextView) findViewById(R.id.textView5);
         FORGOTPASSWORD = (Button) findViewById(R.id.forgotToken);
 
-
-
         //for passphrase change code
-        txtSecurityCode = (EditText) findViewById(R.id.password);
+        txtSecurityCode = (EditText) findViewById(R.id.tokenCode);
         Intent intent = getIntent();
+
         PhoneNumber = intent.getStringExtra("serial");
         Phrase = intent.getStringExtra("phrase");
-        Security_Code = intent.getStringExtra(RequestData.display_code);
-        codeHandler = (TextView) findViewById(R.id.username);
-        //codeHandler.setText(Phrase);
-        convertPhrase=Phrase.toString();
-        int str_len = (Phrase.toString().length()/2);
-        sb = new StringBuilder(Phrase.toString());
-        for (int index = str_len; index < sb.length(); index++) {
-            if (sb.charAt(index) == ' ') {
-            } else {
-                sb.setCharAt(index, '*');
-            }
-        }
-        codeHandler.setText(sb.toString());
 
+        Security_Code = intent.getStringExtra(RequestData.display_code);
+
+        SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
+        codeHandler = (TextView) findViewById(R.id.tokenPhrase);
+        //codeHandler.setText(Phrase);
+        if(!RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
+
+            convertPhrase=Phrase.toString();
+            int str_len = (Phrase.toString().length()/2);
+            sb = new StringBuilder(Phrase.toString());
+            for (int index = str_len; index < sb.length(); index++) {
+                if (sb.charAt(index) == ' ') {
+                } else {
+                    sb.setCharAt(index, '*');
+                }
+            }
+            codeHandler.setText(sb.toString());
 
         CONNECT.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 SecurityCode = txtSecurityCode.getText().toString();
-
                 if (isEmpty(SecurityCode) == false) {
+                    verify();
+
+
                     SharedPreferences.Editor editor = SP.edit();
                     editor.putString(RequestData.SESSION_CODE, USERNAME.getText().toString());
                     editor.commit();
 
                     //getData();
-                    verify();
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter security code before you can Login", Toast.LENGTH_LONG).show();
                 }
@@ -93,19 +98,21 @@ public class UserConnect extends Activity {
 
         });
 
-
-
-        SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
-
-        if(!RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
-
-
         } else {
             Intent TO_USERCONNECT = new Intent(this, UserProfile.class);
             startActivity(TO_USERCONNECT);
         }
     }
 
+
+    //check password
+    private boolean isEmpty(String pword) {
+        if (pword.toString().trim().length() > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     private void verify(){
         if ( (SecurityCode.equals(convertPhrase))) {Toast.makeText(getApplicationContext(), "User Credential is Verified!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent("android.intent.action.UserProfile");
@@ -115,6 +122,13 @@ public class UserConnect extends Activity {
             Toast.makeText(getApplicationContext(), "Verification failed: Code is Incorrect or Expired ", Toast.LENGTH_LONG).show();
         }
     }
+
+
+    protected void onResume() {
+        super.onResume();
+    }
+
+
 
            /* cancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -193,14 +207,6 @@ public class UserConnect extends Activity {
 
     }
 
-    //check password
-    private boolean isEmpty(String pword) {
-        if (pword.toString().trim().length() > 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
     //check valid email
     public static boolean isValid(String email)
     {

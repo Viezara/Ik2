@@ -66,10 +66,10 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
 
     public void Connection() {
         isInternetPresent = cd.isConnnectedToNet();
+
+
         if (isInternetPresent) {
-
             timer = new Timer();
-
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -78,8 +78,6 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
                         @Override
                         public void run() {
                             iProgress1.incrementProgressBy(1);
-                            connectUser();
-
                         }
                     });
                 }
@@ -111,6 +109,17 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
         finish();
     }
 
+    @Override
+    public void onProgressChange(int current, int max) {
+
+        if(current == max) {
+            Intent i = new Intent(SplashActivity.this, homescreen.class);
+            startActivity(i);
+            onBackPressed();
+        }
+
+    }
+
    /* private int getMiliseconds(long milis) {
 
         return (int) (1000/(milis));
@@ -136,9 +145,11 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 //loading.dismiss();
+
                 showUser(s);
 
             }
+
 
             @Override
             protected String doInBackground(Void... v) {
@@ -155,7 +166,10 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
         ae.execute();
     }
     private void showUser(String json){
+
         //Toast.makeText(SplashActivity.this, "insert : " + json.toString(), Toast.LENGTH_LONG).show();
+
+
         try {
             JSONObject jsonObject = new JSONObject(json);
             String error = jsonObject.getString(RequestData.TAG_ERROR);
@@ -182,16 +196,7 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
         }
     }
 
-    @Override
-    public void onProgressChange(int current, int max) {
 
-        if(current == max) {
-            Intent i = new Intent(SplashActivity.this, homescreen.class);
-            startActivity(i);
-            onBackPressed();
-        }
-
-    }
 }
 
 

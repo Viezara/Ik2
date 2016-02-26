@@ -41,15 +41,19 @@ public class PhoneVerification extends Activity{
 
         DIALOG = new ProgressDialog(this);
         VERIFY_BTN = (Button) findViewById(R.id.verifyBtn);
-        txtSecurityCode = (EditText) findViewById(R.id.securityCode);
+        txtSecurityCode = (EditText) findViewById(R.id.tokenCode);
+
         Intent intent = getIntent();
         PhoneNumber = intent.getStringExtra("serial");
         Phrase = intent.getStringExtra("phrase");
+
+
         Security_Code = intent.getStringExtra(RequestData.display_code);
         //codeHandler = (TextView) findViewById(R.id.verificationCode);
         //codeHandler.setText(Security_Code);
         codeHandler = (TextView) findViewById(R.id.passPhrase);
         //codeHandler.setText(Phrase);
+
         convertPhrase=Phrase.toString();
         int str_len = (Phrase.toString().length()/2);
         sb = new StringBuilder(Phrase.toString());
@@ -62,7 +66,6 @@ public class PhoneVerification extends Activity{
         codeHandler.setText(sb.toString());
 
         VERIFY_BTN.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 SecurityCode =txtSecurityCode.getText().toString();
                 if(isEmpty(SecurityCode)==false) {
