@@ -64,16 +64,6 @@
                 />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/google_license"
-                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -81,16 +71,7 @@
                 android:text="OR"/>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/zxing_license"
-                />
+
 
             <TextView
                 android:layout_width="match_parent"

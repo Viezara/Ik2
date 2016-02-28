@@ -32,24 +32,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="is build based on following licenses:"
+                android:layout_marginTop="10dp"
+                android:text="End-User License Agreement"
                 android:textColor="#ff000000"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="italic"
                 android:typeface="sans"
 
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="Apache License"
                 />
 
             <TextView
@@ -63,6 +52,15 @@
                 android:text="@string/licenseseach"
                 />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/read_license"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,14 +70,7 @@
                 android:textStyle="normal"
                 android:typeface="sans"
                 android:textSize="15sp"
-                android:text="@string/google_license"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="OR"/>
-
+                android:text="@string/download_license"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -88,246 +79,151 @@
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/zxing_license"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="Ikona License"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/licenseapply"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/licensecopyright"
-                />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#FF0000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="This is the main license that goes into our license file"
-                />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/eula"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ltd"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/termsuse_11"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"
-                android:text="All Rights Reserved."
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/licensepleaseread"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"/>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/licensedwnld"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text="License"/>
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/license_1"
                 android:layout_marginTop="5dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:text="@string/license_grant"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Restriction"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/restrict_1"
                 android:layout_marginTop="5dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"/>
+                android:textSize="20sp"
+                android:text="Restrictions"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/restriction_1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="20sp"
                 android:text="Modifications to Application"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/modify_1"
                 android:layout_marginTop="5dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:text="@string/modification_1"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Terms and Termination"/>
-
-            <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/terms_1"
-            android:layout_marginTop="5dp"
-            android:textColor="#ff000000"
-            android:textStyle="normal"
-            android:typeface="sans"
-            android:textSize="15sp"/>
-
-            <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/terms_2"
-            android:layout_marginTop="5dp"
-            android:textColor="#ff000000"
-            android:textStyle="normal"
-            android:typeface="sans"
-            android:textSize="15sp"/>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/terms_3"
                 android:layout_marginTop="5dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"/>
+                android:textSize="20sp"
+                android:text="Term and Termination"/>
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+            android:text="@string/termi_1"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termi_2"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termi_3"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="20sp"
                 android:text="Severability"/>
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sev_1"
                 android:layout_marginTop="5dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:text="@string/severi_1"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Amendments to this Agreement"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ammend_1"
                 android:layout_marginTop="5dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"/>
+                android:textSize="20sp"
+                android:text="Ammendments to this Agreement"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/ammendment_1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="20sp"
                 android:text="Contact Information"/>
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/contact_info"
-                android:layout_marginTop="5dp"
-                android:textColor="#ff000000"
-                android:textStyle="normal"
-                android:typeface="sans"
-                android:textSize="15sp"/>
-
-
-
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -335,9 +231,9 @@
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="25sp"
-                android:text="@string/ikona_ag"
-                />
+                android:textSize="15sp"
+                android:text="@string/contact_1"/>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -386,15 +282,20 @@
                 />
             <LinearLayout
                 android:id="@+id/bottom_container"
-                android:layout_width="match_parent"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_alignParentBottom="true"
                 android:orientation="horizontal">
                 <Button
                     android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_shadow"
+                    android:layout_width="150dp"
+                    android:layout_height="36dp"
+                    android:typeface="sans"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#dbe3e3"
                     android:layout_weight="0"
                     android:text="AGREE" />
             </LinearLayout>

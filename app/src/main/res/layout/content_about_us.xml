@@ -102,12 +102,26 @@
         android:layout_alignLeft="@+id/textView8"
         android:layout_alignStart="@+id/textView8" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="FAQ :"
+        android:id="@+id/textViewFaq"
+        android:typeface="sans"
+        android:textColor="#ff000000"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView11"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView5"
         android:background="@drawable/copyright"
-        android:layout_below="@+id/textView11"
+        android:layout_below="@+id/textViewFaq"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
 
@@ -230,7 +244,7 @@
         android:textColor="#ff000000"
         android:textStyle="bold"
         android:clickable="true"
-        android:layout_above="@+id/imageView5"
+        android:layout_alignBottom="@+id/textView11"
         android:layout_alignRight="@+id/textView29"
         android:layout_alignEnd="@+id/textView29" />
 
@@ -248,6 +262,21 @@
         android:layout_above="@+id/textView8"
         android:layout_alignLeft="@+id/privacyPolicy"
         android:layout_alignStart="@+id/privacyPolicy" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=">"
+        android:id="@+id/faQ"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textColor="#ff000000"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:layout_above="@+id/imageView5"
+        android:layout_alignLeft="@+id/termsOfUse"
+        android:layout_alignStart="@+id/termsOfUse" />
 
 
 </RelativeLayout>

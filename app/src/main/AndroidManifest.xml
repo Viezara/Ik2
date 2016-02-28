@@ -274,6 +274,7 @@
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.PrivacyPolicy" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -283,22 +284,21 @@
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.Terms" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".License"
             android:label="Licenses"
             android:theme="@android:style/Theme.Holo.Dialog">
-
             <intent-filter>
                 <action android:name="android.intent.action.License" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
-
+        <activity android:name=".FaqActivity"></activity>
     </application>
 
 </manifest>
