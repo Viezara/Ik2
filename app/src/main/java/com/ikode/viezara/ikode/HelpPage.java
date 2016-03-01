@@ -64,7 +64,6 @@ public class HelpPage extends AppCompatActivity {
                     "• In addition Near Field Communication (NFC)Ikode Smartcode-NFC tags\n" +
                     "\n" +
                     "• and Radio Frequency Identification Devices (RFID)our soon to be released Ikode Smartcode-RFID tags\n" +
-                    "\n" +
                     "On the other hand the IkodeSC Reaoder, installed on your smart mobile phone is a tool that allows you to verify the authenticity of products, documents and services of participating brand and corporations in the fight to bust fraud.", //1
             "Launch the Ikode SC Decoder on your device. It will require an authentication (mobile number). Within seconds the camera will become active and is ready for scanning. Line up the phone so that the Code is completely inside the viewfinder marks of your camera. If lighting is a problem and your camera can’t focus on the code, please re-position the phone. After scanning the decoded Code data is immediately visible to you and prompts you to do the authenticity verification.", //2
             "An IkodeSC Reader is a visual cluster of black and white square that contain data which can be captured by your\n" +
@@ -212,7 +211,7 @@ public class HelpPage extends AppCompatActivity {
                 tx.setGravity(Gravity.TOP);
 
 
-                new AlertDialog.Builder(HelpPage.this).setTitle("MESSAGE").setMessage("CONTENT: ").setView(tx,50 ,0, 50 , 0).setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(HelpPage.this).setTitle("MESSAGE").setMessage("CONTENT: ").setView(tx,25, 0, 25, 0).setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
 
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

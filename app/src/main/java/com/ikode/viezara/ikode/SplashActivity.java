@@ -106,6 +106,7 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
     }
     @Override
     public void onBackPressed() {
+
         finish();
     }
 
@@ -113,9 +114,12 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
     public void onProgressChange(int current, int max) {
 
         if(current == max) {
-            Intent i = new Intent(SplashActivity.this, homescreen.class);
-            startActivity(i);
-            onBackPressed();
+            /*Intent i = new Intent(SplashActivity.this, homescreen.class);
+            startActivity(i);*/
+
+            connectUser();
+
+
         }
 
     }

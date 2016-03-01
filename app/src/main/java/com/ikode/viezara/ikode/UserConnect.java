@@ -47,8 +47,11 @@ public class UserConnect extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_user_connect);
         //original code from Aries and Demy
+
+
 //        USERNAME = (EditText) findViewById(R.id.username);
 //        PASSWORD = (EditText) findViewById(R.id.password);
+
         CONNECT = (Button) findViewById(R.id.connectBtn);
 //        cancel = (TextView) findViewById(R.id.textView5);
         FORGOTPASSWORD = (Button) findViewById(R.id.forgotToken);
@@ -127,8 +130,6 @@ public class UserConnect extends Activity {
     protected void onResume() {
         super.onResume();
     }
-
-
 
            /* cancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
