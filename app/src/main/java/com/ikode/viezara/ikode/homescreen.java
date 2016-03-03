@@ -1,18 +1,20 @@
 package com.ikode.viezara.ikode;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class homescreen extends AppCompatActivity {
 
     private Button REGISTER_BTN;
     private Button SCAN_BTN;
-    private Button LOGIN_BTN;
+    private ImageButton LOGIN_BTN;
     private TextView HELP;
     private TextView ABOUT;
     private CheckBox REGISTER_BOX;
@@ -26,16 +28,34 @@ public class homescreen extends AppCompatActivity {
 
 //        REGISTER_BTN = (Button) findViewById(R.id.registerBtn);
         SCAN_BTN  = (Button) findViewById(R.id.scanButton);
-//        LOGIN_BTN =(Button) findViewById(R.id.btnLogin);
+        LOGIN_BTN =(ImageButton) findViewById(R.id.loginButton1);
         View mViewOption = (View)findViewById(R.id.relativeLayout);
         HELP = (TextView) findViewById(R.id.textView26);
         ABOUT = (TextView) findViewById(R.id.textView27);
+        //LOGIN_BTN.setImageResource(R.drawable.ic_login);
+
+        if(!RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
+
+            //login picture
+
+            LOGIN_BTN.setImageResource(R.drawable.ic_login_user);
+
+      /*  }else{
+
+            //exit picture
+
+            LOGIN_BTN.setImageResource(R.drawable.ic_login);*/
+
+        }
+
+        //End application
         if (getIntent().getBooleanExtra("EXIT", false))
         {
             finish();
         }
 
         if (RequestData.user_Registered.equals("false")) {
+            LOGIN_BTN.setVisibility(View.GONE);
             REGISTER_BOX.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -52,6 +72,7 @@ public class homescreen extends AppCompatActivity {
         else
         {
             mViewOption.setVisibility(View.GONE);
+
         }
         SCAN_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +82,20 @@ public class homescreen extends AppCompatActivity {
             }
         });
 
-/*        //LOGIN_BTN.setOnClickListener(new View.OnClickListener() {
+        LOGIN_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toLogin = new Intent("android.intent.action.UserConnect");
-                startActivity(toLogin);
+                if(RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))) {
+                    Intent userChoice = new Intent("android.intent.action.UserProfile");
+                    startActivity(userChoice);
+                }
+                else{
+                    Intent toLogin = new Intent("android.intent.action.UserConnect");
+                    startActivity(toLogin);
+                }
+
             }
-        });*/
+        });
 
         HELP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,17 +113,14 @@ public class homescreen extends AppCompatActivity {
 
             }
         });
-        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+    }
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
     }
 
 }

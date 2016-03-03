@@ -24,7 +24,7 @@ public class UserConnect extends Activity {
 
     private EditText USERNAME, PASSWORD;
     private Button CONNECT;
-    private String input_password="";
+    private String input_token="";
     private String input_email="";
     //private TextView cancel;
     private SharedPreferences SP;
@@ -49,8 +49,8 @@ public class UserConnect extends Activity {
         //original code from Aries and Demy
 
 
-//        USERNAME = (EditText) findViewById(R.id.username);
-//        PASSWORD = (EditText) findViewById(R.id.password);
+        //USERNAME = (EditText) findViewById(R.id.username);
+        //PASSWORD = (EditText) findViewById(R.id.password);
 
         CONNECT = (Button) findViewById(R.id.connectBtn);
 //        cancel = (TextView) findViewById(R.id.textView5);
@@ -58,42 +58,55 @@ public class UserConnect extends Activity {
 
         //for passphrase change code
         txtSecurityCode = (EditText) findViewById(R.id.tokenCode);
-        Intent intent = getIntent();
+        //Intent intent = getIntent();
 
-        PhoneNumber = intent.getStringExtra("serial");
-        Phrase = intent.getStringExtra("phrase");
+        //PhoneNumber = intent.getStringExtra("serial");
+        //Phrase = intent.getStringExtra("phrase");
 
-        Security_Code = intent.getStringExtra(RequestData.display_code);
+        //Security_Code = intent.getStringExtra(RequestData.display_code);
 
         SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
         codeHandler = (TextView) findViewById(R.id.tokenPhrase);
-        //codeHandler.setText(Phrase);
-        if(!RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
 
-            convertPhrase=Phrase.toString();
-            int str_len = (Phrase.toString().length()/2);
-            sb = new StringBuilder(Phrase.toString());
-            for (int index = str_len; index < sb.length(); index++) {
-                if (sb.charAt(index) == ' ') {
-                } else {
-                    sb.setCharAt(index, '*');
-                }
+
+        int str_len = (RequestData.getToken.toString().length()/2);
+        sb = new StringBuilder(RequestData.getToken.toString());
+        for (int index = str_len; index < sb.length(); index++) {
+            if (sb.charAt(index) == ' ') {
+            } else {
+                sb.setCharAt(index, '*');
             }
-            codeHandler.setText(sb.toString());
+        }
+        codeHandler.setText(sb.toString());
+        codeHandler.setEnabled(false);
 
+        FORGOTPASSWORD.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent reqToken = new Intent("android.intent.action.RequestToken");
+                startActivity(reqToken);
+                onBackPressed();
+            }
+
+        });
+        if(!RequestData.checkSession(getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE))){
         CONNECT.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                SecurityCode = txtSecurityCode.getText().toString();
-                if (isEmpty(SecurityCode) == false) {
-                    verify();
-
-
-                    SharedPreferences.Editor editor = SP.edit();
-                    editor.putString(RequestData.SESSION_CODE, USERNAME.getText().toString());
-                    editor.commit();
-
-                    //getData();
-
+                //SecurityCode = txtSecurityCode.getText().toString();
+                //input_email = codeHandler.getText().toString().trim();
+                input_token = txtSecurityCode.getText().toString().trim();
+                if (isEmpty(input_token) == false) {
+                    if (RequestData.getToken.equals(input_token)) {
+                        SharedPreferences.Editor editor = SP.edit();
+                        editor.putString(RequestData.SESSION_CODE, txtSecurityCode.getText().toString());
+                        editor.commit();
+                        Intent userChoice = new Intent("android.intent.action.UserProfile");
+                        startActivity(userChoice);
+                        onBackPressed();
+                        //connectUser();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Invalid Token, Please enter correct token.", Toast.LENGTH_LONG).show();
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter security code before you can Login", Toast.LENGTH_LONG).show();
                 }
@@ -102,8 +115,8 @@ public class UserConnect extends Activity {
         });
 
         } else {
-            Intent TO_USERCONNECT = new Intent(this, UserProfile.class);
-            startActivity(TO_USERCONNECT);
+            Intent TO_USER_CONNECT = new Intent(this, UserProfile.class);
+            startActivity(TO_USER_CONNECT);
         }
     }
 
@@ -249,7 +262,7 @@ public class UserConnect extends Activity {
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
                 params.put(RequestData.KEY_Email,input_email);
-                params.put(RequestData.KEY_Pass,input_password);
+                params.put(RequestData.KEY_Pass,input_token);
 
                 RequestHandler rh = new RequestHandler();
                 String s = rh.sendPostRequest(RequestData.URL_GET_USER, params);
@@ -268,7 +281,7 @@ public class UserConnect extends Activity {
             if(error.equals("false"))
             {
                 Toast.makeText(UserConnect.this, msg, Toast.LENGTH_LONG).show();
-                Intent userChoice = new Intent("android.intent.action.UserProfile");//changed this to User Profile
+                Intent userChoice = new Intent("android.intent.action.UserProfile");
                 startActivity(userChoice);
                 onBackPressed();
             }

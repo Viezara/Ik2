@@ -19,7 +19,7 @@ public class LoginDataBaseAdapter
 
 		//Product Create
 		static final String DATABASE_SCAN_CREATE = "create table "+"scan_docs"+
-				"( " +"ID"+" integer primary key autoincrement,"+ "type  text,desc text); ";
+				"( " +"ID"+" integer primary key autoincrement,"+ "type  text,desc text, scan_at DATETIME DEFAULT CURRENT_TIMESTAMP); ";
 
 
 		// Variable to hold the database instance
@@ -90,7 +90,7 @@ public class LoginDataBaseAdapter
 		public Cursor fetchAllDocs() {
 
 			Cursor mCursor = db.rawQuery("SELECT "
-					+ "ID" + " AS _id" + ", type " + ", desc from scan_docs", null);
+					+ "ID" + " AS _id" + ", type " + ", desc, scan_at from scan_docs", null);
 			if (mCursor != null) {
 				mCursor.moveToFirst();
 

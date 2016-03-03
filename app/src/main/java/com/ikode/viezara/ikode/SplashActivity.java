@@ -36,6 +36,9 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
     private Timer timer;
     private NumberProgressBar iProgress1;
 
+    private int jumpTime = 0;
+    private static final String TAG = "myApp";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,41 +51,42 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
         iProgress1 = (NumberProgressBar) findViewById(R.id.numberbar1);
         iProgress1.setOnProgressBarListener(this);
 
-       /* iProgress1 = (ProgressBar) findViewById(R.id.progressBar);
-        iProgress.setOnProgressBarListener(this);*/
-
-        cd = new ConnectionDetector(getApplicationContext());
-        //connectUser();
         RequestData.storedEmail = loginDataBaseAdapter.getUserEmail();
+        cd = new ConnectionDetector(getApplicationContext());
         Connection();
-
+        //display();
     }
-
-
-    //iProgress.setMax(seconds - 1);
-
-    // iProgress.setRotation(360);
-
 
     public void Connection() {
         isInternetPresent = cd.isConnnectedToNet();
-
-
         if (isInternetPresent) {
+            no_Connection = false;
             timer = new Timer();
+
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     runOnUiThread(new Runnable() {
-
                         @Override
                         public void run() {
-                            iProgress1.incrementProgressBy(1);
+                        iProgress1.incrementProgressBy(2);
+                        jumpTime += 2;
+                        //Log.v(TAG, "jumpTime "+ jumpTime);
+                        if (jumpTime == 100) {
+                            display();
+                            onFinish();
                         }
-                    });
+                    }
                 }
-            }, 1000, 100);
-            no_Connection = true;
+                );
+            }
+                public void onFinish()
+                {
+                    timer.cancel();
+                }
+
+        }, 100, 100);
+
         } else {
             new AlertDialog.Builder(SplashActivity.this).setTitle("MESSAGE").setMessage("No Internet Connection, Please check your connection settings!").setView(text).setNegativeButton("CLOSE",
                     new DialogInterface.OnClickListener() {
@@ -93,17 +97,11 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
                     }).show();
 
         }
+        //display();
 
-
-
-/*                new CountDownTimer(miliseconds,1000){
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        //progressbar update--->1 second
-                        iProgress.setProgress(getMiliseconds(millisUntilFinished));
-
-                    }*/
     }
+
+
     @Override
     public void onBackPressed() {
 
@@ -114,25 +112,27 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
     public void onProgressChange(int current, int max) {
 
         if(current == max) {
-            /*Intent i = new Intent(SplashActivity.this, homescreen.class);
-            startActivity(i);*/
-
-            connectUser();
-
 
         }
 
     }
 
-   /* private int getMiliseconds(long milis) {
 
-        return (int) (1000/(milis));
-    }*/
 
     public void display()
     {
-        RequestData.storedEmail =loginDataBaseAdapter.getUserEmail();
-        connectUser();
+
+            //RequestData.storedEmail = loginDataBaseAdapter.getUserEmail();
+            if (RequestData.storedEmail.isEmpty()==false) {
+                connectUser();
+            } else {
+                RequestData.user_Registered = "false";
+                Intent i = new Intent(SplashActivity.this, homescreen.class);
+                SplashActivity.this.startActivityForResult(i, 1);
+                onBackPressed();
+            }
+
+
 
     }
     //// code inserted start
@@ -181,6 +181,8 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
             if(error.equals("false"))
             {
                 RequestData.user_Registered = "true";
+                RequestData.getToken = jsonObject.getString(RequestData.TAG_Token);
+                //Log.v(TAG, "jsonObject: "+ msg +" "+RequestData.getToken);
                 Intent i = new Intent(SplashActivity.this, homescreen.class);
                 SplashActivity.this.startActivityForResult(i, 1);
                 onBackPressed();
@@ -196,6 +198,7 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
 
         } catch (JSONException e) {
             e.printStackTrace();
+            RequestData.user_Registered = "false";
             //Toast.makeText(SplashActivity.this, e.toString(), Toast.LENGTH_LONG).show();
         }
     }

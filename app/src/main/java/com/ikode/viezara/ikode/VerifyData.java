@@ -68,7 +68,7 @@ public class VerifyData extends AppCompatActivity {
 
         id = intent.getStringExtra(RequestData.barcode_ID);
 
-        Toast.makeText(VerifyData.this, id, Toast.LENGTH_LONG).show();
+
 
         editDataId = (EditText) findViewById(R.id.editDataId);
         editDataType = (EditText) findViewById(R.id.editDataType);

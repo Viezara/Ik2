@@ -59,7 +59,8 @@
         android:nextFocusForward="@+id/signup_btn"
         android:paddingLeft="20px"
         android:paddingRight="20px"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:maxLength="8" />
 
 
     <Button

@@ -11,15 +11,16 @@ public class RequestData {
     public static final String URL_CREATE_USER = "http://219.89.205.123/ikode/v1/register";*/
 
     /*//local
-    public static final String URL_GET_DATA = "http://192.168.1.72:8080/REST/v1/check";
-    public static final String URL_GET_USER = "http://192.168.1.72:8080/REST/v1/login";
-    public static final String URL_CREATE_USER = "http://192.168.1.72:8080/REST/v1/register";
-    public static final String URL_CONNECTION = "http://192.168.1.72:8080/REST/v1/connection";*/
+    public static final String URL_GET_DATA = "http://10.0.0.9:8080/REST/v1/check";
+    public static final String URL_GET_USER = "http://10.0.0.9:8080/REST/v1/login";
+    public static final String URL_CREATE_USER = "http://10.0.0.9:8080/REST/v1/register";
+    public static final String URL_CONNECTION = "http://10.0.0.9:8080/REST/v1/connection";*/
 
     public static final String URL_GET_DATA = "http://219.89.205.123/ikode/v1/check";
     public static final String URL_GET_USER = "http://219.89.205.123/ikode/v1/login";
     public static final String URL_CREATE_USER = "http://219.89.205.123/ikode/v1/register";
     public static final String URL_CONNECTION = "http://219.89.205.123/ikode/v1/connection";
+    public static final String URL_REQUEST_TOKEN = "http://219.89.205.123/ikode/v1/requestToken";
 
     public static final String URL_GET_SECURITY_NUMBER="http://219.89.205.123/android/getSecurityNumber.php?securityNumber=";
     public static final String URL_GET_DATA_IMAGE = "http://219.89.205.123/android/getDataImage.php?id=";
@@ -32,6 +33,7 @@ public class RequestData {
     public static final String TAG_ERROR = "error";
     public static final String TAG_USER = "user";
     public static final String TAG_Message= "message";
+    public static final String TAG_Token= "token";
 
     public static final String TAG_docId = "docId";
     public static final String TAG_Img = "image";
@@ -54,6 +56,7 @@ public class RequestData {
 
     public static final String barcode_ID = "barcode_ID";
     public static final String display_code = "code";
+    public static String getToken = "token";
 
     //session common variable
     public static final String SESSION = "Session" ;

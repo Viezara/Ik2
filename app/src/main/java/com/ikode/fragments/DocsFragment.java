@@ -1,21 +1,21 @@
 package com.ikode.fragments;
 
-import android.app.ListFragment;
+import android.content.Intent;
 import android.database.Cursor;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.ikode.viezara.ikode.LoginDataBaseAdapter;
 import com.ikode.viezara.ikode.R;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by jem on 30/01/16.
@@ -40,23 +40,38 @@ public class DocsFragment extends Fragment {
         String[] columns = new String[]{
                 "_id",
                 "type",
-                "desc"
+                "desc",
+                "scan_at"
         };
         // the XML defined views which the data will be bound tso
         int[] to = new int[] {
                 R.id.list_ID,
                 R.id.list_type,
                 R.id.list_desc,
+                R.id.list_scan_at,
         };
 
         dataAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_row, cursor, columns, to, 0);
-        ListView myList = (ListView) v.findViewById(R.id.listView1);
+        final ListView myList = (ListView) v.findViewById(R.id.listView1);
         myList.setAdapter(dataAdapter);
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            public void onItemClick(AdapterView<?> a, View v, int position,
+                                    long id) {
+                String dataID = ((TextView) v.findViewById(R.id.list_ID)).getText().toString();
+                String datadesc = ((TextView) v.findViewById(R.id.list_desc)).getText().toString();
+                Intent TO_REGISTRATION = new Intent("android.intent.action.ContentView");
+                TO_REGISTRATION.putExtra("content_view", dataID);
+                TO_REGISTRATION.putExtra("content_view_desc", datadesc);
+                startActivity(TO_REGISTRATION);
+                Log.v("log_tag", "List Item Click " + dataID);
+            }
+        });
         return v;
 
 
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

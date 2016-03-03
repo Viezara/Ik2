@@ -133,6 +133,26 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ContentView"
+            android:label="Ikode SC Reader"
+            android:theme="@android:style/Theme.Holo.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.ContentView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RequestToken"
+            android:label="Ikode SC Reader"
+            android:theme="@android:style/Theme.Holo.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.RequestToken" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".RegistrationPage"
             android:label="Ikode SC Reader"
             android:theme="@android:style/Theme.Holo.Dialog">

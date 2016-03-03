@@ -297,4 +297,7 @@ Privacy Policy, do not download or use the Application.</string>
     <string name="severi_1">If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</string>
     <string name="ammendment_1">Ikona AG reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 15 days\' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</string>
     <string name="contact_1">If you have any questions about this Agreement, please contact us by email at support@ikonasoftware.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

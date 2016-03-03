@@ -144,7 +144,7 @@ public class UserProfile extends AppCompatActivity {
 
 
                     case R.id.navigation_item_7:
-                        Toast.makeText(getApplicationContext(),"LogOff",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"LogOff",Toast.LENGTH_SHORT).show();
                         logout();
 
                         break;
@@ -256,7 +256,13 @@ public class UserProfile extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
 
 }
 
