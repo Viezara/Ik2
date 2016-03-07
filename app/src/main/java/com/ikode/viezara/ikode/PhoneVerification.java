@@ -94,7 +94,7 @@ public class PhoneVerification extends Activity{
     }
     private void verify(){
         if ( (SecurityCode.equals(convertPhrase))) {Toast.makeText(getApplicationContext(), "User Credential is Verified!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent("android.intent.action.UserProfile");
+            Intent intent = new Intent("android.intent.action.UserConnect");
             startActivity(intent);
             onBackPressed();
         } else {

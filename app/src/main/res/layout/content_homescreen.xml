@@ -49,9 +49,10 @@
         <Button
             android:id="@+id/scanButton"
             android:layout_width="150dp"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:text="SCAN CODE"
             android:icon="@drawable/ic_autofocus"
+            android:textAlignment="gravity"
             android:typeface="sans"
             android:gravity="center"
             android:textStyle="bold"
@@ -64,10 +65,11 @@
 
         <Button
             android:layout_width="150dp"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:text="SCAN RFID"
             android:layout_marginTop="10dp"
             android:typeface="sans"
+            android:textAlignment="gravity"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
@@ -80,9 +82,10 @@
 
         <Button
             android:layout_width="150dp"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:id="@+id/button2"
             android:text="SCAN NFC"
+            android:textAlignment="gravity"
             android:typeface="sans"
             android:gravity="center"
             android:textStyle="bold"
@@ -98,7 +101,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/imageView6"
             android:background="@drawable/ic_qrbig"
             android:layout_alignParentTop="true"
@@ -107,7 +110,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/imageView8"
             android:background="@drawable/ic_nfc_signal"
             android:layout_alignTop="@+id/button2"
@@ -116,7 +119,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/imageView9"
             android:background="@drawable/ic_rfid"
             android:layout_alignTop="@+id/button3"
