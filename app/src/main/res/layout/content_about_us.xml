@@ -230,9 +230,10 @@
         android:textColor="#ff000000"
         android:textStyle="bold"
         android:clickable="true"
+        android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
-        android:layout_alignLeft="@+id/termsOfUse"
-        android:layout_alignStart="@+id/termsOfUse" />
+        android:layout_alignLeft="@+id/licensesUse"
+        android:layout_alignStart="@+id/licensesUse" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -245,6 +246,7 @@
         android:textColor="#ff000000"
         android:textStyle="bold"
         android:clickable="true"
+        android:layout_alignBaseline="@+id/textView11"
         android:layout_alignBottom="@+id/textView11"
         android:layout_alignRight="@+id/textView29"
         android:layout_alignEnd="@+id/textView29" />
@@ -261,8 +263,8 @@
         android:id="@+id/licensesUse"
         android:clickable="true"
         android:layout_above="@+id/textView8"
-        android:layout_alignLeft="@+id/privacyPolicy"
-        android:layout_alignStart="@+id/privacyPolicy" />
+        android:layout_alignRight="@+id/textView29"
+        android:layout_alignEnd="@+id/textView29" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -275,9 +277,10 @@
         android:textColor="#ff000000"
         android:textStyle="bold"
         android:clickable="true"
-        android:layout_above="@+id/imageView5"
-        android:layout_alignLeft="@+id/termsOfUse"
-        android:layout_alignStart="@+id/termsOfUse" />
+        android:layout_alignBaseline="@+id/textViewFaq"
+        android:layout_alignBottom="@+id/textViewFaq"
+        android:layout_alignRight="@+id/textView29"
+        android:layout_alignEnd="@+id/textView29" />
 
 
 </RelativeLayout>

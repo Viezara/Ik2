@@ -55,7 +55,7 @@ public class PhoneVerification extends Activity{
         //codeHandler.setText(Phrase);
 
         convertPhrase=Phrase.toString();
-        int str_len = (Phrase.toString().length()/2);
+        int str_len = (Phrase.toString().length()/4);
         sb = new StringBuilder(Phrase.toString());
         for (int index = str_len; index < sb.length(); index++) {
             if (sb.charAt(index) == ' ') {

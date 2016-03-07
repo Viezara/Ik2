@@ -43,6 +43,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -93,6 +94,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
   public static final int HISTORY_REQUEST_CODE = 0x0000bacc;
 
+    private static String PRODUCT_CODE = "";
+
   private static final Collection<ResultMetadataType> DISPLAYABLE_METADATA_TYPES =
       EnumSet.of(ResultMetadataType.ISSUE_NUMBER,
                  ResultMetadataType.SUGGESTED_PRICE,
@@ -118,6 +121,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private InactivityTimer inactivityTimer;
   private BeepManager beepManager;
   private AmbientLightManager ambientLightManager;
+    private Button skip;
+    private static int counter = 0;
+    private static int counter2 = 0;
 
   ViewfinderView getViewfinderView() {
     return viewfinderView;
@@ -134,7 +140,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   @Override
   public void onCreate(Bundle icicle) {
     super.onCreate(icicle);
-
     Window window = getWindow();
     window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     setContentView(R.layout.capture);
@@ -145,6 +150,18 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     ambientLightManager = new AmbientLightManager(this);
 
     PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+      skip = (Button) findViewById(R.id.skip);
+
+      skip.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              //counter2 = 1;
+              Intent intent = new Intent(CaptureActivity.this, VerifyData.class);
+              intent.putExtra(RequestData.barcode_ID, PRODUCT_CODE);
+              startActivity(intent);
+          }
+      });
   }
 
   @Override
@@ -262,10 +279,19 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       // The activity was paused but not stopped, so the surface still exists. Therefore
       // surfaceCreated() won't be called, so init the camera here.
       initCamera(surfaceHolder);
+
     } else {
       // Install the callback and wait for surfaceCreated() to init the camera.
       surfaceHolder.addCallback(this);
     }
+
+      if (counter == 1) {
+          counter = 0;
+          Intent intent2 = new Intent(this, VerifyData.class);
+          intent2.putExtra(RequestData.barcode_ID, PRODUCT_CODE);
+
+          startActivity(intent2);
+      }
   }
 
   private int getCurrentOrientation() {
@@ -307,6 +333,15 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       SurfaceHolder surfaceHolder = surfaceView.getHolder();
       surfaceHolder.removeCallback(this);
     }
+
+      if(counter2 == 1) {
+          counter = 0;
+          counter2 = 0;
+      } else {
+          counter = 1;
+          counter2 = 1;
+      }
+
     super.onPause();
   }
 
@@ -534,8 +569,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     }
 
     statusView.setVisibility(View.GONE);
-    viewfinderView.setVisibility(View.GONE);
-    resultView.setVisibility(View.GONE);
+    viewfinderView.setVisibility(View.VISIBLE);
+    resultView.setVisibility(View.VISIBLE);
 
     ImageView barcodeImageView = (ImageView) findViewById(R.id.barcode_image_view);
     if (barcode == null) {
@@ -611,10 +646,12 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     startActivity(intent);
     */
 
-    Intent intent = new Intent(this, VerifyData.class);
-    intent.putExtra(RequestData.barcode_ID, displayContents);
+    //Intent intent = new Intent(this, VerifyData.class);
+    //intent.putExtra(RequestData.barcode_ID, displayContents);
 
-    startActivity(intent);
+    //startActivity(intent);
+
+      PRODUCT_CODE = displayContents.toString();
   }
 
   // Briefly show the contents of the barcode, then handle the result outside Barcode Scanner.

@@ -68,7 +68,14 @@ public class VerifyData extends AppCompatActivity {
 
         id = intent.getStringExtra(RequestData.barcode_ID);
 
-
+        /** whats app functionality
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "This is the message");
+        sendIntent.setType("text/plain");
+        sendIntent.setPackage("com.whatsapp");
+        startActivity(sendIntent);
+        **/
 
         editDataId = (EditText) findViewById(R.id.editDataId);
         editDataType = (EditText) findViewById(R.id.editDataType);

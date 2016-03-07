@@ -40,6 +40,7 @@ public class homescreen extends AppCompatActivity {
 
             LOGIN_BTN.setImageResource(R.drawable.ic_login_user);
 
+
       /*  }else{
 
             //exit picture

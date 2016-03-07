@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="10dp"
     android:background="#dbe3e3"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -437,9 +438,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ikona_ag"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:textColor="#ff000000"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="normal"
                 android:typeface="sans" />
 
@@ -449,7 +450,7 @@
                 android:text="@string/street"
                 android:layout_marginTop="2dp"
                 android:textColor="#ff000000"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="normal"
                 android:typeface="sans" />
 
@@ -458,9 +459,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/street_1"
                 android:textColor="#ff000000"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="normal"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:typeface="sans" />
 
             <TextView
@@ -470,7 +471,7 @@
                 android:text="@string/country"
                 android:layout_marginTop="2dp"
                 android:textColor="#ff000000"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="normal"
                 android:typeface="sans" />
 
@@ -488,8 +489,9 @@
                 android:id="@+id/bottom_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_alignParentBottom="true"
+                android:paddingBottom="2dp"
                 android:orientation="horizontal">
                 <Button
                     android:id ="@+id/btnCancel"
@@ -501,12 +503,13 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="#dbe3e3"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="CANCEL" />
                 <Button
                     android:id ="@+id/btnAccept"
                     android:layout_width="150dp"
                     android:layout_height="36dp"
+                    android:textSize="12sp"
                     android:typeface="sans"
                     android:gravity="center"
                     android:textStyle="bold"
