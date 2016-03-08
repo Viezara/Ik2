@@ -71,7 +71,7 @@ public class UserConnect extends Activity {
 
         int str_len = (RequestData.getToken.toString().length()/2);
         sb = new StringBuilder(RequestData.getToken.toString());
-        for (int index = str_len; index < sb.length(); index++) {
+        for (int index = 4; index < sb.length(); index++) {
             if (sb.charAt(index) == ' ') {
             } else {
                 sb.setCharAt(index, '*');

@@ -156,7 +156,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       skip.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              //counter2 = 1;
+              counter2 = 1;
+              counter = 0;
               Intent intent = new Intent(CaptureActivity.this, VerifyData.class);
               intent.putExtra(RequestData.barcode_ID, PRODUCT_CODE);
               startActivity(intent);
@@ -344,6 +345,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     super.onPause();
   }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        counter = 0;
+        counter2 = 1;
+        finish();
+    }
 
   @Override
   protected void onDestroy() {

@@ -102,9 +102,12 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                                 Toast.makeText(getApplicationContext(), "Unable to register,. Please read our Privacy Policy.", Toast.LENGTH_LONG).show();
                             }
                             else {
-
-                                getVerificationDetails();
-                                addCode();
+                                if(TXTPHRASE.getText().toString().length() >4 && TXTPHRASE.getText().toString().length()<=16) {
+                                    getVerificationDetails();
+                                    addCode();
+                                }
+                                else
+                                {Toast.makeText(getApplicationContext(), "Passphrase must be atleast 12 to 16 characters.", Toast.LENGTH_LONG).show();}
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Password is empty", Toast.LENGTH_LONG).show();

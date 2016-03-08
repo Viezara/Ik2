@@ -51,6 +51,8 @@ public class VerifyData extends AppCompatActivity {
     private String sql_type="";
     private String sql_desc="";
 
+    private boolean checker = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,8 @@ public class VerifyData extends AppCompatActivity {
         Intent intent = getIntent();
 
         id = intent.getStringExtra(RequestData.barcode_ID);
+
+
 
         /** whats app functionality
         Intent sendIntent = new Intent();
@@ -138,8 +142,23 @@ public class VerifyData extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_profile){
-            Intent intent = new Intent(this, UserConnect.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, UserConnect.class);
+            //startActivity(intent);
+
+            if(checker) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Data ID: " + editDataId.getText() + "\n"
+                        + "Data Type: " + editDataType.getText() + "\n"
+                        + "Data Description: " + editDesc.getText() +"\n"
+                        + "Data Version: " + editVer.getText());
+                sendIntent.setType("text/plain");
+                //sendIntent.setPackage("com.whatsapp");
+                startActivity(sendIntent);
+
+
+
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -209,10 +228,13 @@ public class VerifyData extends AppCompatActivity {
                     sql_desc = desc;
                     save_Docs=true;
 
+                checker = true;
+
             }
             else {
                 Toast.makeText(VerifyData.this, msg, Toast.LENGTH_LONG).show();
                 save_Docs=false;
+                checker = false;
             }
         } catch (JSONException e) {
             e.printStackTrace();

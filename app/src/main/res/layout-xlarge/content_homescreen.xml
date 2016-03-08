@@ -26,10 +26,10 @@
             android:src="@drawable/ikodeglobe" />
 
         <ImageButton
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/loginButton1"
-            android:background="@drawable/ic_user"
+            android:background="@drawable/ic_login_user"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
@@ -100,8 +100,8 @@
             android:layout_alignParentEnd="true" />
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/imgQR"
             android:background="@drawable/ic_qrbig"
             android:layout_alignParentTop="true"
@@ -109,8 +109,8 @@
             android:layout_toStartOf="@+id/scanButton" />
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/imgNFC"
             android:background="@drawable/ic_nfc_signal"
             android:layout_alignTop="@+id/scanNFC"
@@ -118,8 +118,8 @@
             android:layout_toStartOf="@+id/scanNFC" />
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/imgRFID"
             android:background="@drawable/ic_rfid"
             android:layout_alignTop="@+id/button3"
@@ -203,8 +203,8 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout"
-        android:id="@+id/relativeLayout7">
+        android:id="@+id/relativeLayout7"
+        android:layout_alignParentTop="true">
         <TextView
             android:id="@+id/textView26"
             android:layout_width="wrap_content"

@@ -206,7 +206,7 @@
     <string name="settings_description">settings_description</string>
 
     <!-- Privacy, Licenses, Terms and FAq's-->
-    <string name="nR">Not yet Registered?</string>
+    <string name="nR">Not yet Registered? - Register now to get full access to Ikode SC Reader Settings and improved features.</string>
     <string name="wholeRegister">- Register now to get full access \n to Ikode SC Reader settings and improved features</string>
     <string name="title_activity_privacy_policy">Privacy Policy</string>
     <string name="def_1">•\ the terms \"Personal Information\" or \"Personally Identifiable Information\" means your phone number, email address, and/or user ID information that identify you personally as well as unique device identifiers such as IMEI, MEID, IMSI, or ESN. Geo-location (GPS, WiFi) is a user choice/opt-in, though recommended;</string>
