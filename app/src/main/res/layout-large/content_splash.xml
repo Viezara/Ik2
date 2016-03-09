@@ -23,44 +23,17 @@
             android:layout_height="200dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/ikodeglobe" />
-
-        <ImageView
-            android:id="@+id/imageView30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView15"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/license1" />
-
-        <ImageView
-            android:id="@+id/imageView31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView30"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp"
-            android:background="@drawable/fraudhash" />
-
-        <ImageView
-            android:id="@+id/imageView39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView31"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/quote" />
+            android:background="@drawable/ic_ikodeglobe" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:id="@+id/relativeLayout5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/relativeLayout6">
+        android:layout_marginBottom="90dp">
 
         <TextView
             android:id="@+id/textView"
@@ -84,6 +57,31 @@
 
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/imageView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/quote"
+        android:layout_below="@+id/imageView31"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp" />
+
+    <ImageView
+        android:id="@+id/imageView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fraudhash"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView44"
+        android:layout_below="@+id/relativeLayout6"
+        android:layout_centerHorizontal="true" />
 
 
     <!--<ProgressBar

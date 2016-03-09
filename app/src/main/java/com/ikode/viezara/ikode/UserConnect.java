@@ -33,6 +33,8 @@ public class UserConnect extends Activity {
     private String PhoneSerial;
 
 
+
+
     //code from Phone Verification.Java
     private EditText txtSecurityCode;
     private String Phrase;
@@ -47,6 +49,10 @@ public class UserConnect extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_user_connect);
         //original code from Aries and Demy
+
+        //for spannable string license by ikona
+
+
 
 
         //USERNAME = (EditText) findViewById(R.id.username);

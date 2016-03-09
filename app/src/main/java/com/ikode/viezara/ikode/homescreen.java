@@ -2,8 +2,15 @@ package com.ikode.viezara.ikode;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,10 +26,24 @@ public class homescreen extends AppCompatActivity {
     private TextView ABOUT;
     private CheckBox REGISTER_BOX;
     private View mViewOption;
+    private TextView ikonalicense;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
+
+        ikonalicense = (TextView) findViewById(R.id.ikonalicensetext);
+        SpannableString ikltext = new SpannableString("licensed by Ikona®");
+
+        ikltext.setSpan(new StyleSpan(Typeface.BOLD_ITALIC),0,18, 0);
+        ikltext.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 10, 0);
+        ikltext.setSpan(new ForegroundColorSpan(Color.rgb(212, 175, 55)), 12, 18, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ikonalicense.setMovementMethod(LinkMovementMethod.getInstance());
+        ikonalicense.setText(ikltext);
+        ikonalicense.setHighlightColor(Color.TRANSPARENT);
+
 
         REGISTER_BOX = (CheckBox) findViewById(R.id.checkBox2);
 
@@ -52,7 +73,7 @@ public class homescreen extends AppCompatActivity {
         //End application
         if (getIntent().getBooleanExtra("EXIT", false))
         {
-            finish();
+            //finish();
         }
 
         if (RequestData.user_Registered.equals("false")) {

@@ -157,7 +157,7 @@
 
 
     <RelativeLayout
-        android:layout_width="500dp"
+        android:layout_width="400dp"
         android:layout_height="130dp"
         android:background="@drawable/ikodebox"
         android:id="@+id/relativeLayout"
@@ -169,7 +169,7 @@
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:checked="false"
             android:text="@string/nR"
             android:textSize="20sp"
