@@ -2,11 +2,18 @@ package com.ikode.viezara.ikode;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -39,10 +46,26 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
     private int jumpTime = 0;
     private static final String TAG = "myApp";
 
+    private TextView iklsplash;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_splash);
+
+        //for ikona License spannable
+
+        iklsplash = (TextView) findViewById(R.id.iklsplashTxt);
+        SpannableString iklsplashtxt = new SpannableString("licensed by Ikona®");
+
+        iklsplashtxt.setSpan(new StyleSpan(Typeface.BOLD_ITALIC),0,18, 0);
+        iklsplashtxt.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 10, 0);
+        iklsplashtxt.setSpan(new ForegroundColorSpan(Color.rgb(212, 175, 55)), 12, 18, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        iklsplash.setMovementMethod(LinkMovementMethod.getInstance());
+        iklsplash.setText(iklsplashtxt);
+        iklsplash.setHighlightColor(Color.TRANSPARENT);
+
 
         // create a instance of SQLite Database
         loginDataBaseAdapter = new LoginDataBaseAdapter(this);

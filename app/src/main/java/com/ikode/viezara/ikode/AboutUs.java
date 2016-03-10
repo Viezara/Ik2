@@ -1,8 +1,15 @@
 package com.ikode.viezara.ikode;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,11 +19,24 @@ public class AboutUs extends AppCompatActivity {
     private TextView LICENSE;
     private TextView PRIVACY;
     private TextView TERMS;
+    private TextView ikonalicenseabout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
+
+        ikonalicenseabout = (TextView) findViewById(R.id.iklabtTxt);
+        SpannableString iklabouttext = new SpannableString("licensed by Ikona®");
+
+        iklabouttext.setSpan(new StyleSpan(Typeface.BOLD_ITALIC),0,18, 0);
+        iklabouttext.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 10, 0);
+        iklabouttext.setSpan(new ForegroundColorSpan(Color.rgb(212, 175, 55)), 12, 18, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ikonalicenseabout.setMovementMethod(LinkMovementMethod.getInstance());
+        ikonalicenseabout.setText(iklabouttext);
+        ikonalicenseabout.setHighlightColor(Color.TRANSPARENT);
+
 
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
