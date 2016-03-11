@@ -16,28 +16,32 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/relativeLayout6">
 
+
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/ikodeglobe" />
+            android:background="@drawable/ic_ikodeglobe" />
 
-        <ImageView
-            android:id="@+id/imageView30"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/iklsplashTxt"
+            android:textSize="18sp"
             android:layout_below="@+id/imageView15"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/license1" />
+            android:layout_centerHorizontal="true" />
+
+
 
         <ImageView
             android:id="@+id/imageView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView30"
+            android:layout_below="@+id/iklsplashTxt"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="48dp"
             android:background="@drawable/fraudhash" />
@@ -83,17 +87,6 @@
             android:layout_marginBottom="28dp" />
 
     </RelativeLayout>
-
-
-
-    <!--<ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:indeterminate="false" />-->
 
 
 </RelativeLayout>

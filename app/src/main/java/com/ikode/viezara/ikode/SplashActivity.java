@@ -61,7 +61,6 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
         iklsplashtxt.setSpan(new StyleSpan(Typeface.BOLD_ITALIC),0,18, 0);
         iklsplashtxt.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 10, 0);
         iklsplashtxt.setSpan(new ForegroundColorSpan(Color.rgb(212, 175, 55)), 12, 18, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
         iklsplash.setMovementMethod(LinkMovementMethod.getInstance());
         iklsplash.setText(iklsplashtxt);
         iklsplash.setHighlightColor(Color.TRANSPARENT);

@@ -73,7 +73,7 @@ public class homescreen extends AppCompatActivity {
         //End application
         if (getIntent().getBooleanExtra("EXIT", false))
         {
-            //finish();
+            finish();
         }
 
         if (RequestData.user_Registered.equals("false")) {

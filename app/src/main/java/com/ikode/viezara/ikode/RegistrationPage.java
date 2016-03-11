@@ -281,7 +281,9 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                     //intent.putExtra(RequestData.display_code, Code);
                     startActivity(intent);
 
-                    loginDataBaseAdapter.insertEntry(input_email,  " ");
+                    loginDataBaseAdapter.insertEntry(input_email, " ");
+
+                    RequestData.getToken = TXTPHRASE.getText().toString();
 
                     onBackPressed();
                 }
