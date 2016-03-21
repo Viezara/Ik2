@@ -40,7 +40,7 @@
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:id="@+id/loginButton1"
-            android:background="@drawable/ic_user"
+            android:background="@drawable/ic_login_user"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

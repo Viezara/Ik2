@@ -36,21 +36,29 @@
             android:layout_centerHorizontal="true" />
 
 
-
-        <ImageView
-            android:id="@+id/imageView31"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iklsplashTxt"
-            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="#SayNoToFraud"
+            android:typeface="sans"
+            android:textStyle="bold|italic"
             android:layout_marginTop="48dp"
-            android:background="@drawable/fraudhash" />
+            android:textSize="24sp"
+            android:id="@+id/textViewFraud"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/iklsplashTxt"
+            />
+
+
 
         <ImageView
             android:id="@+id/imageView39"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView31"
+            android:layout_below="@+id/textViewFraud"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:background="@drawable/quote" />
