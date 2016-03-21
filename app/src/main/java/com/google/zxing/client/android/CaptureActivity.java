@@ -18,6 +18,7 @@ package com.google.zxing.client.android;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -124,6 +125,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     private Button skip;
     private static int counter = 0;
     private static int counter2 = 0;
+  private boolean chooser = false;
+  private DialogInterface.OnClickListener dialogClickListener;
+  private String value_toSend;
 
   ViewfinderView getViewfinderView() {
     return viewfinderView;
@@ -149,8 +153,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     beepManager = new BeepManager(this);
     ambientLightManager = new AmbientLightManager(this);
 
-    PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
+    PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+    /**
       skip = (Button) findViewById(R.id.skip);
 
       skip.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +168,24 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
               startActivity(intent);
           }
       });
+     */
+
+    dialogClickListener = new DialogInterface.OnClickListener() {
+      @Override
+      public void onClick(DialogInterface dialog, int which) {
+        switch (which){
+          case DialogInterface.BUTTON_POSITIVE:
+            chooser = true;
+            IntentData();
+            break;
+
+          case DialogInterface.BUTTON_NEGATIVE:
+            chooser = false;
+            onRestart();
+            break;
+        }
+      }
+    };
   }
 
   @Override
@@ -285,7 +308,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       // Install the callback and wait for surfaceCreated() to init the camera.
       surfaceHolder.addCallback(this);
     }
-
+    /**
       if (counter == 1) {
           counter = 0;
           Intent intent2 = new Intent(this, VerifyData.class);
@@ -293,6 +316,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
           startActivity(intent2);
       }
+     */
   }
 
   private int getCurrentOrientation() {
@@ -334,7 +358,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       SurfaceHolder surfaceHolder = surfaceView.getHolder();
       surfaceHolder.removeCallback(this);
     }
-
+      /**
       if(counter2 == 1) {
           counter = 0;
           counter2 = 0;
@@ -342,10 +366,11 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
           counter = 1;
           counter2 = 1;
       }
+       */
 
     super.onPause();
   }
-
+/*
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -353,6 +378,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         counter2 = 1;
         finish();
     }
+    */
 
   @Override
   protected void onDestroy() {
@@ -553,11 +579,11 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
   private static void drawLine(Canvas canvas, Paint paint, ResultPoint a, ResultPoint b, float scaleFactor) {
     if (a != null && b != null) {
-      canvas.drawLine(scaleFactor * a.getX(), 
-                      scaleFactor * a.getY(), 
-                      scaleFactor * b.getX(), 
-                      scaleFactor * b.getY(), 
-                      paint);
+      canvas.drawLine(scaleFactor * a.getX(),
+              scaleFactor * a.getY(),
+              scaleFactor * b.getX(),
+              scaleFactor * b.getY(),
+              paint);
     }
   }
 
@@ -578,8 +604,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     }
 
     statusView.setVisibility(View.GONE);
-    viewfinderView.setVisibility(View.VISIBLE);
-    resultView.setVisibility(View.VISIBLE);
+    viewfinderView.setVisibility(View.GONE);
+    resultView.setVisibility(View.GONE);
 
     ImageView barcodeImageView = (ImageView) findViewById(R.id.barcode_image_view);
     if (barcode == null) {
@@ -654,15 +680,28 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     intent.putExtra("bcode", displayContents);
     startActivity(intent);
     */
+    value_toSend = displayContents.toString();
+    AlertDialog.Builder builder = new AlertDialog.Builder(CaptureActivity.this);
+    builder.setMessage("Do you want to send to Ikode Exchange for Verification?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
 
-    //Intent intent = new Intent(this, VerifyData.class);
-    //intent.putExtra(RequestData.barcode_ID, displayContents);
-
-    //startActivity(intent);
-
-      PRODUCT_CODE = displayContents.toString();
+  }
+  @Override
+  public void onRestart()
+  {
+    super.onRestart();
+    finish();
+    startActivity(getIntent());
   }
 
+  public void IntentData()
+  {
+    if(chooser) {
+      Intent intent = new Intent(this, VerifyData.class);
+      intent.putExtra(RequestData.barcode_ID, value_toSend);
+
+      startActivity(intent);
+    }
+  }
   // Briefly show the contents of the barcode, then handle the result outside Barcode Scanner.
   private void handleDecodeExternally(Result rawResult, ResultHandler resultHandler, Bitmap barcode) {
 

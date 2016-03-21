@@ -112,15 +112,14 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Licenses"
-            android:layout_marginTop="5dp"
             android:textSize="12sp"
             android:typeface="sans"
             android:textColor="#ff000000"
             android:textStyle="bold"
             android:id="@+id/textView6"
-            android:layout_below="@+id/textView5"
-            android:layout_alignRight="@+id/textView5"
-            android:layout_alignEnd="@+id/textView5" />
+            android:layout_alignBottom="@+id/licensesUse"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"

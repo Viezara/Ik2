@@ -273,6 +273,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                 String msg = jsonObject.getString(RequestData.TAG_Message);
                 if(error.equals("false"))
                 {
+                    RequestData.getTMobileNumber = MOBILE_NUMBER;
                     RequestData.accepted_Privacy=false;
                     Toast.makeText(RegistrationPage.this, msg, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent("android.intent.action.VERIFICATION");

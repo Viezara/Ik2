@@ -32,7 +32,6 @@ public class AboutUs extends AppCompatActivity {
         iklabouttext.setSpan(new StyleSpan(Typeface.BOLD_ITALIC),0,18, 0);
         iklabouttext.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 10, 0);
         iklabouttext.setSpan(new ForegroundColorSpan(Color.rgb(212, 175, 55)), 12, 18, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
         ikonalicenseabout.setMovementMethod(LinkMovementMethod.getInstance());
         ikonalicenseabout.setText(iklabouttext);
         ikonalicenseabout.setHighlightColor(Color.TRANSPARENT);

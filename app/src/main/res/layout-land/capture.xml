@@ -189,11 +189,6 @@
           <Button style="@style/ResultButton"
                   android:visibility="gone"/>
 
-            <Button style="@style/ResultButton"
-                android:id="@+id/skip"
-                android:visibility="visible"
-                android:text="skip"/>
-
         </LinearLayout>
 
       </LinearLayout>

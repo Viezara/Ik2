@@ -57,6 +57,7 @@ public class RequestData {
     public static final String barcode_ID = "barcode_ID";
     public static final String display_code = "code";
     public static String getToken = "token";
+    public static String getTMobileNumber = "";
 
     //session common variable
     public static final String SESSION = "Session" ;

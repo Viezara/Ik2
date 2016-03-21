@@ -1,5 +1,7 @@
 package com.ikode.viezara.ikode;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
@@ -29,6 +32,7 @@ import java.util.HashMap;
 public class VerifyData extends AppCompatActivity {
 
     private EditText editDataId;
+    private EditText editReceived;
     private EditText editDataType;
     private EditText editDesc;
     private EditText editVer;
@@ -36,6 +40,7 @@ public class VerifyData extends AppCompatActivity {
     private Button buttonSets, buttonSave;
     private SharedPreferences SP;
     private boolean save_Docs =false;
+    private EditText editTxtConfirm;
     //for Toolbar
     private Toolbar toolbar;
 
@@ -50,7 +55,7 @@ public class VerifyData extends AppCompatActivity {
     private String sql_id="";
     private String sql_type="";
     private String sql_desc="";
-
+    private String MOBILE_NUMBER="";
     private boolean checker = false;
 
     @Override
@@ -69,9 +74,6 @@ public class VerifyData extends AppCompatActivity {
         Intent intent = getIntent();
 
         id = intent.getStringExtra(RequestData.barcode_ID);
-
-
-
         /** whats app functionality
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -88,7 +90,8 @@ public class VerifyData extends AppCompatActivity {
         imageView  = (ImageView) findViewById(R.id.imageView);
         buttonSets = (Button) findViewById(R.id.settButt);
         buttonSave = (Button) findViewById(R.id.saveButt);
-
+        editTxtConfirm = (EditText) findViewById(R.id.txtConfirmation);
+        editReceived = (EditText) findViewById(R.id.txtRequestor);
         editDataId.setText(id);
 
         SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
@@ -98,7 +101,7 @@ public class VerifyData extends AppCompatActivity {
             buttonSets.setVisibility(View.GONE);
             buttonSave.setVisibility(View.GONE);
         }
-
+        getVerificationDetails();
         getData();
 
         buttonSets.setOnClickListener(new View.OnClickListener() {
@@ -115,16 +118,17 @@ public class VerifyData extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if(save_Docs==true){
-                        String insert_Response = loginDataBaseAdapter.insertScan(sql_id, sql_type, sql_desc);
-                        Toast.makeText(VerifyData.this, insert_Response, Toast.LENGTH_LONG).show();
-                    }
+                if (save_Docs == true) {
+                    String insert_Response = loginDataBaseAdapter.insertScan(sql_id, sql_type, sql_desc);
+                    Toast.makeText(VerifyData.this, insert_Response, Toast.LENGTH_LONG).show();
+                    Intent uprof = new Intent("android.intent.action.UserProfile");
+                    startActivity(uprof);
+                }
             }
 
 
-
         });
-    }
+    } //END OF ONCREATE
 
     //this is for the menu bar for toolbar *gmbg*
     @Override
@@ -144,7 +148,7 @@ public class VerifyData extends AppCompatActivity {
         if (id == R.id.action_profile){
             //Intent intent = new Intent(this, UserConnect.class);
             //startActivity(intent);
-
+            /*
             if(checker) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
@@ -159,6 +163,7 @@ public class VerifyData extends AppCompatActivity {
 
 
             }
+            */
         }
         return super.onOptionsItemSelected(item);
     }
@@ -216,6 +221,9 @@ public class VerifyData extends AppCompatActivity {
                     editDataType.setText(type);
                     editDesc.setText(desc);
                     editVer.setText(ver);
+                    editTxtConfirm.setText("Product Verified Authentic");
+                    editReceived.setText(MOBILE_NUMBER);
+
                     //getImage();
 
                     byte[] decodedString = Base64.decode(img, Base64.DEFAULT);
@@ -228,18 +236,19 @@ public class VerifyData extends AppCompatActivity {
                     sql_desc = desc;
                     save_Docs=true;
 
-                checker = true;
-
             }
             else {
                 Toast.makeText(VerifyData.this, msg, Toast.LENGTH_LONG).show();
                 save_Docs=false;
                 checker = false;
+                buttonSave.setVisibility(View.GONE);
+                editTxtConfirm.setText("We can not confirm its original content");
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
     //Start Insert
     private void getImage() {
         docId = id;
@@ -284,6 +293,42 @@ public class VerifyData extends AppCompatActivity {
 
         gi.execute(docId);
     }
+    public String getDeviceID() {
+        TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+        String ID = tm.getDeviceId();
+        return ID;
+    }
 
+    public String getPhoneNumber() {
+        TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+        String NUMBER = tm.getLine1Number();
+        return NUMBER;
+    }
+    private void getVerificationDetails () {
+        if(!getPhoneNumber().equals("")) {
+            MOBILE_NUMBER = getPhoneNumber();
+            //VERIFICATION_TYPE = RequestData.VERIFICATION_TYPE_PHONE;
+        } else {
+            AccountManager manager = AccountManager.get(VerifyData.this);
+            Account[] accounts = manager.getAccounts();
+            boolean checker = false;
+
+            for(Account ctr : accounts){
+                String accountNames = ctr.name;
+                boolean num = RequestData.getAccountsPhoneNumber(accountNames);
+                if(num) {
+                    //Toast.makeText(getApplicationContext(), accountNames, Toast.LENGTH_LONG).show();
+                    MOBILE_NUMBER = accountNames;
+                    //VERIFICATION_TYPE = RequestData.VERIFICATION_TYPE_PHONE;
+                    checker = true;
+                }
+            }
+
+            if (!checker) {
+                MOBILE_NUMBER = getDeviceID();
+                //VERIFICATION_TYPE = RequestData.VERIFICATION_TYPE_DEVICE;
+            }
+        }
+    }
 
 }

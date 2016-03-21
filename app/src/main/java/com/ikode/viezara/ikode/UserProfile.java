@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -31,7 +32,7 @@ public class UserProfile extends AppCompatActivity {
     private ActionBarDrawerToggle iDrawerToggle;
     private NavigationView iDrawer;
     private DrawerLayout iDrawerLayout;
-
+    private TextView userID;
 
     //for real
     FragmentManager mFragmentManager;
@@ -54,6 +55,7 @@ public class UserProfile extends AppCompatActivity {
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+
 
 
        /* //new viewpager
@@ -85,6 +87,9 @@ public class UserProfile extends AppCompatActivity {
 
         //for Navigation Drawer code
         iDrawer = (NavigationView) findViewById(R.id.main_drawer_profile);
+        View header=iDrawer.getHeaderView(0);
+        userID = (TextView) header.findViewById(R.id.user_);
+        userID.setText(RequestData.storedEmail);
 
         iDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
 
@@ -167,14 +172,15 @@ public class UserProfile extends AppCompatActivity {
                 SharedPreferences.Editor editor = SP.edit();
                 editor.clear();
                 editor.commit();
+                finish();
+                Intent TO_LOGOFF = new Intent(UserProfile.this, homescreen.class);
+                startActivity(TO_LOGOFF);
 
-                //Intent TO_LOGOFF = new Intent(UserProfile.this, homescreen.class);
-                //startActivity(TO_LOGOFF);
 
-                Intent i = new Intent(UserProfile.this, homescreen.class);
+                /*Intent i = new Intent(UserProfile.this, homescreen.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 i.putExtra("EXIT", true);
-                startActivity(i);
+                startActivity(i);*/
             }
 
         });
@@ -253,7 +259,9 @@ public class UserProfile extends AppCompatActivity {
         if (iDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             iDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
+
             super.onBackPressed();
+
         }
     }
     @Override
