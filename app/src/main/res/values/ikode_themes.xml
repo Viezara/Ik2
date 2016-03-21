@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Ikode" parent="@android:style/Theme.Holo">
+        <item name="android:actionBarStyle">@style/Widget.Ikode.ActionBar.Solid</item>
+        <item name="android:alertDialogTheme">@style/Theme_Ikode_Dialog_Alert</item>
+    </style>
+    <!-- Local copy of android:Theme.Holo.Dialog.Alert -->
+    <style name="Theme_Holo_Dialog_Alert" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle_Holo</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+    <!-- Local copy of android:DialogWindowTitle.Holo -->
+    <style name="DialogWindowTitle_Holo">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo.DialogWindowTitle
+        </item>
+    </style>
+
+    <!--//this is for the text inside the dialog//-->
+
+    <style name="Theme_Ikode_Dialog_Alert" parent="@style/Theme_Holo_Dialog_Alert">
+        <!--<item name="android:windowTitleStyle">@style/DialogWindowTitle_Ikode</item>-->
+        <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
+        <!--Tutorial says Orange-->
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Ikode.Medium</item>
+    </style>
+
+
+    <!--hold first this is for buttons
+     <style name="Theme_Ikode_Dialog_Alert" parent="@style/Theme_Holo_Dialog_Alert">
+         <item name="android:borderlessButtonStyle">@style/Widget.Ikode.Button.Borderless</item>
+         <item name="android:buttonBarStyle">@style/Ikode.ButtonBar.AlertDialog</item>
+     </style>
+ -->
+
+</resources>

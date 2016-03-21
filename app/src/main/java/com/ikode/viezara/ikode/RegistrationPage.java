@@ -4,12 +4,17 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
-import android.view.Gravity;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,60 +38,89 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
     private Button SIGNUP_BTN;
     private String MOBILE_NUMBER = "";
     private String VERIFICATION_TYPE = "";
-    private TextView cancel;
+    private TextView cancel, policy;
     private ImageButton HELPBUTTON;
 
     private String security_code="";
     private String input_password="";
     private String input_email="";
+    private String input_phrase="";
     private String Security_Code="";
+    LoginDataBaseAdapter loginDataBaseAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_registration_page);
         FacebookSdk.sdkInitialize(getApplicationContext());
 
+        // create a instance of SQLite Database
+        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter=loginDataBaseAdapter.open();
+
+        policy = (TextView) findViewById(R.id.textView16);
+
         EMAIL = (EditText) findViewById(R.id.registration_email);
         PASSWORD = (EditText) findViewById(R.id.registration_password);
         SIGNUP_BTN = (Button) findViewById(R.id.signup_btn);
 //        cancel = (TextView) findViewById(R.id.textView2);
         TXTPHRASE = (EditText) findViewById(R.id.editText);
-        HELPBUTTON = (ImageButton) findViewById(R.id.imageButton3);
+        //HELPBUTTON = (ImageButton) findViewById(R.id.imageButton3);
+
+        String sp = "Please read our Privacy Policy at this time before you register!";
+
+        TextView pText = (TextView) findViewById(R.id.textView16);
+
+        SpannableString policyText = new SpannableString(sp);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View policy) {
+                startActivity(new Intent(RegistrationPage.this, PrivacyPolicy.class));
+
+            }
+        };
+        policyText.setSpan(clickableSpan, 16, 30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        policyText.setSpan(new ForegroundColorSpan(Color.rgb(0, 127, 127)), 16,30, 0);
+        policyText.setSpan(new UnderlineSpan(), 16, 30, 0);
+        pText.setText(policyText);
+        pText.setMovementMethod(LinkMovementMethod.getInstance());
+        pText.setHighlightColor(Color.TRANSPARENT);
+
+
 
 //        cancel.setOnClickListener(this);
 
         SIGNUP_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                getVerificationDetails();
-
-                /*
-                Intent VERIFICATION_PAGE = new Intent("android.intent.action.VERIFICATION");
-                VERIFICATION_PAGE.putExtra("Verification_Type", VERIFICATION_TYPE);
-                startActivity(VERIFICATION_PAGE);*/
-
-                input_password = PASSWORD.getText().toString().trim();
-                input_email = EMAIL.getText().toString().trim();
-                if (isValid(input_email) == true) {
-                    if (isEmpty(input_password) == false) {
-                        addCode();
-                        //Intent intent = new Intent("android.intent.action.VERIFICATION");
-                        //intent.putExtra(RequestData.verification_code, MOBILE_NUMBER);
-                        //startActivity(intent);
-
+                    input_password = PASSWORD.getText().toString().trim();
+                    input_email = EMAIL.getText().toString().trim();
+                    input_phrase = TXTPHRASE.getText().toString().trim();
+                    if (isValid(input_email) == true) {
+                        if (isEmpty(input_password) == false) {
+                            if(RequestData.accepted_Privacy == false)
+                            {
+                                Toast.makeText(getApplicationContext(), "Unable to register,. Please read our Privacy Policy.", Toast.LENGTH_LONG).show();
+                            }
+                            else {
+                                if(TXTPHRASE.getText().toString().length() >4 && TXTPHRASE.getText().toString().length()<=16) {
+                                    getVerificationDetails();
+                                    addCode();
+                                }
+                                else
+                                {Toast.makeText(getApplicationContext(), "Passphrase must be atleast 12 to 16 characters.", Toast.LENGTH_LONG).show();}
+                            }
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Password is empty", Toast.LENGTH_LONG).show();
+                        }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Password is empty", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "User email is invalid", Toast.LENGTH_LONG).show();
+                        EMAIL.requestFocus();
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG).show();
-                    EMAIL.requestFocus();
-                }
 
             }
         });
 
-        HELPBUTTON.setOnClickListener(new View.OnClickListener() {
+        /*HELPBUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -106,7 +140,7 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                         }).show();
 
             }
-        });
+        });*/
 
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -119,6 +153,10 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
                         .setAction("Action", null).show();
             }
         });*/
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
     }
     //Onclick TextView
     public void onClick(View v) {
@@ -211,13 +249,13 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(RequestData.KEY_User_Email,input_email);
-                params.put(RequestData.KEY_User_Name,input_password);
-                params.put(RequestData.KEY_Security_Number,security_code);
-                params.put(RequestData.Key_User_Serial_Code,MOBILE_NUMBER);
+                params.put(RequestData.KEY_Token,input_phrase);
+                params.put(RequestData.KEY_Email,input_email);
+                params.put(RequestData.KEY_Pass,input_password);
+                params.put(RequestData.KEY_Code,MOBILE_NUMBER);
 
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(RequestData.URL_ADD_USER, params);
+                String s = rh.sendPostRequest(RequestData.URL_CREATE_USER, params);
                 return s;
             }
         }
@@ -230,16 +268,24 @@ public class RegistrationPage extends Activity implements View.OnClickListener {
             try {
                 //Toast.makeText(getApplicationContext(),  json, Toast.LENGTH_LONG).show();
                 JSONObject jsonObject = new JSONObject(json);
-                String Code = jsonObject.getString(RequestData.TAG_DISPLAY_SECURITY_CODE);
-                String success = jsonObject.getString(RequestData.TAG_SUCCESS);
-                String msg = jsonObject.getString(RequestData.TAG_MSG);
-                if(success.equals("1"))
+                //String Code = jsonObject.getString(RequestData.TAG_DISPLAY_SECURITY_CODE);
+                String error = jsonObject.getString(RequestData.TAG_ERROR);
+                String msg = jsonObject.getString(RequestData.TAG_Message);
+                if(error.equals("false"))
                 {
+                    RequestData.accepted_Privacy=false;
+                    Toast.makeText(RegistrationPage.this, msg, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent("android.intent.action.VERIFICATION");
                     intent.putExtra("serial", MOBILE_NUMBER);
                     intent.putExtra("phrase", TXTPHRASE.getText().toString());
-                    intent.putExtra(RequestData.display_code, Code);
+                    //intent.putExtra(RequestData.display_code, Code);
                     startActivity(intent);
+
+                    loginDataBaseAdapter.insertEntry(input_email, " ");
+
+                    RequestData.getToken = TXTPHRASE.getText().toString();
+
+                    onBackPressed();
                 }
                 else
                 {

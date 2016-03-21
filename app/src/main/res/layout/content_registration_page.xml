@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dbe3e3"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.RegistrationPage"
     >
@@ -12,72 +14,114 @@
         android:id="@+id/registration_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textView16"
         android:background="@drawable/edittext_custom"
-        android:drawableLeft="@drawable/emailicon1"
+        android:drawableLeft="@drawable/ic_email"
         android:ems="10"
-        android:textColor="#ff000000"
         android:hint="  john@ikode.com"
         android:inputType="textEmailAddress"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="96dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:paddingLeft="20px"
+        android:paddingRight="30px"
+        android:textColor="#ff000000" />
     <EditText
         android:id="@+id/registration_password"
         android:layout_width="match_parent"
-        android:textColor="#ff000000"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/registration_email"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/edittext_custom"
-        android:drawableLeft="@drawable/passwordicon1"
+        android:drawableLeft="@drawable/ic_lock"
         android:ems="10"
         android:hint=" ******"
         android:inputType="textPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:textColor="#ff000000" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ff000000"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/registration_password"
-        android:layout_marginTop="4dp"
         android:background="@drawable/edittext_custom"
-        android:drawableLeft="@drawable/passphrase"
+        android:drawableLeft="@drawable/ic_passphrase"
         android:ems="10"
-        android:hint=" ID phrase"
+        android:hint=" ID token"
         android:inputType="textVisiblePassword"
-        android:nextFocusForward="@+id/signup_btn" />
+        android:nextFocusForward="@+id/signup_btn"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:textColor="#ff000000"
+        android:maxLength="16" />
 
 
     <Button
         android:id="@+id/signup_btn"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_signup"
-        android:layout_below="@+id/editText"
+        android:layout_marginTop="15dp"
+        android:layout_width="150dp"
+        android:layout_height="36dp"
+        android:typeface="sans"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#dbe3e3"
+        android:text="SIGN UP"
+        android:textSize="14sp"
+        android:background="@drawable/button_shadow"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
-    <ImageButton
-        android:id="@+id/imageButton3"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:src="@drawable/set_help"
-        android:layout_below="@+id/signup_btn"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="39dp" />
-    <ImageButton
-        android:id="@+id/imageButton6"
-        style="?android:attr/borderlessButtonStyle"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/set_about"
-        android:layout_alignTop="@+id/imageButton3"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:text="● ID token must be between 8 and 16 characters long"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ff000000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:drawableLeft="@drawable/ic_info_black_24dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textColor="#ff000000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:typeface="sans"/>
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I like to receive information about Ikode deployment or associated counter-fraud services"
+        android:layout_marginTop="15dp"
+        android:id="@+id/checkBox3"
+        android:textColor="#ff000000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:checked="true"
+        android:layout_below="@+id/signup_btn"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
 </RelativeLayout>

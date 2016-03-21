@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ikode.viezara.ikode.Terms">
+
+    <ScrollView
+        android:id="@+id/scrollTerms"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#dbe3e3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termsuse"
+                android:textAlignment="center"
+                android:textColor="#ff000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="sans"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/termsuse_words"
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_1"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_2"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_3"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_4"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_5"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_6"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_7"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_8"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_9"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termsuse_10"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_11"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:text="@string/termsuse_12"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termsuse_13"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termsuse_14"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termsuse_15"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"/>
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/termsuse_16"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termsuse_17"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="25sp"
+                android:text="@string/ikona_ag"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#ff000000"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:text="@string/street"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="20sp"
+                android:text="@string/street_1"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#ff000000"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:text="@string/country"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#ff000000"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                android:text="@string/termsfooter"
+                />
+            <LinearLayout
+                android:id="@+id/bottom_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/scanNFC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="I ACCEPT" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

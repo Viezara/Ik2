@@ -15,10 +15,11 @@
  limitations under the License.
  -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
   <SurfaceView android:id="@+id/preview_view"
-               android:layout_width="fill_parent"
+                     android:layout_width="fill_parent"
                android:layout_height="fill_parent"/>
 
   <com.google.zxing.client.android.ViewfinderView
@@ -31,6 +32,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:background="@color/result_view"
+
                     android:visibility="gone"
                     android:baselineAligned="false">
 

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:background="#dbe3e3"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ikode.viezara.ikode.homescreen">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayoutGlobe"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_ikodeglobe" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginButton1"
+            android:background="@drawable/ic_user"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ikodebox"
+        android:id="@+id/relativeLayout"
+        android:layout_above="@+id/relativeLayout7"
+        android:layout_centerHorizontal="true">
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:checked="false"
+            android:text="@string/nR"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/checkBox2"
+            android:layout_alignStart="@+id/checkBox2"
+            android:layout_below="@+id/checkBox2"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="I do not want to Register."
+            android:textColor="#ff000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/relativeLayout7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:drawableLeft="@drawable/ic_help"
+            android:gravity="center_vertical"
+            android:text="Help"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_about"
+            android:gravity="center_vertical"
+            android:text="About"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:layout_alignTop="@+id/textView26"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="34sp"
+        android:id="@+id/ikonalicensetext"
+        android:layout_below="@+id/relativeLayoutGlobe"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout8"
+        android:layout_below="@+id/ikonalicensetext"
+        android:layout_marginTop="55dp"
+        android:layout_alignRight="@+id/relativeLayout"
+        android:layout_alignEnd="@+id/relativeLayout"
+        android:layout_alignLeft="@+id/relativeLayout"
+        android:layout_alignStart="@+id/relativeLayout">
+
+        <Button
+            tools:ignore="NotSibling"
+            android:id="@+id/button2"
+            android:layout_width="320dp"
+            android:layout_height="68dp"
+            android:text="SCAN CODE"
+            android:icon="@drawable/ic_autofocus"
+            android:textAlignment="gravity"
+            android:typeface="sans"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#dbe3e3"
+            android:textSize="34sp"
+            android:background="@drawable/button_shadow"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="320dp"
+            android:layout_height="68dp"
+            android:id="@+id/button4"
+            android:text="SCAN NFC"
+            android:textAlignment="gravity"
+            android:typeface="sans"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#dbe3e3"
+            android:textSize="34sp"
+            android:layout_alignTop="@+id/imageView9"
+            android:background="@drawable/button_shadow"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/button2" />
+
+        <Button
+            android:layout_width="320dp"
+            android:layout_height="68dp"
+            android:text="SCAN RFID"
+            android:typeface="sans"
+            android:textAlignment="gravity"
+            android:layout_alignTop="@+id/imageView8"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#dbe3e3"
+            android:textSize="34sp"
+            android:id="@+id/button5"
+            android:background="@drawable/button_shadow"
+            android:layout_below="@+id/button4"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="88dp"
+            android:id="@+id/imageView6"
+            android:background="@drawable/ic_qrbig"
+            android:layout_toLeftOf="@+id/button2" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="88dp"
+            android:id="@+id/imageView8"
+            android:background="@drawable/ic_rfid"
+            android:layout_below="@+id/imageView9"
+            android:layout_toLeftOf="@+id/button5"
+            android:layout_alignLeft="@+id/imageView9"
+            android:layout_alignStart="@+id/imageView9" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="88dp"
+            android:id="@+id/imageView9"
+            android:background="@drawable/ic_nfc_signal"
+            android:layout_below="@+id/imageView6"
+            android:layout_toLeftOf="@+id/button4"
+            android:layout_alignLeft="@+id/imageView6"
+            android:layout_alignStart="@+id/imageView6" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

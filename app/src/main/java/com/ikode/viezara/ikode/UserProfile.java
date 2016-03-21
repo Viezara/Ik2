@@ -144,8 +144,9 @@ public class UserProfile extends AppCompatActivity {
 
 
                     case R.id.navigation_item_7:
-                        Toast.makeText(getApplicationContext(),"LogOff",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"LogOff",Toast.LENGTH_SHORT).show();
                         logout();
+
                         break;
                 }
 
@@ -167,8 +168,13 @@ public class UserProfile extends AppCompatActivity {
                 editor.clear();
                 editor.commit();
 
-                Intent TO_LOGOFF = new Intent(UserProfile.this, homescreen.class);
-                startActivity(TO_LOGOFF);
+                //Intent TO_LOGOFF = new Intent(UserProfile.this, homescreen.class);
+                //startActivity(TO_LOGOFF);
+
+                Intent i = new Intent(UserProfile.this, homescreen.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.putExtra("EXIT", true);
+                startActivity(i);
             }
 
         });
@@ -202,6 +208,10 @@ public class UserProfile extends AppCompatActivity {
 
     }
 
+    public void exit(View view)
+    {
+        System.exit(0);
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -246,7 +256,13 @@ public class UserProfile extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
 
 }
 

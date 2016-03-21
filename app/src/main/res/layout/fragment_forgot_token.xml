@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dbe3e3"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    tools:context="com.ikode.viezara.ikode.ForgotToken">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/registration_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/textView16"
+            android:background="@drawable/edittext_custom"
+            android:drawableLeft="@drawable/ic_email"
+            android:ems="10"
+            android:hint="  john@ikode.com"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20px"
+            android:paddingRight="30px"
+            android:textColor="#ff000000" />
+
+        <Button
+            android:id="@+id/req1Token_btn"
+            android:layout_marginTop="15dp"
+            android:layout_width="150dp"
+            android:layout_height="36dp"
+            android:typeface="sans"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#dbe3e3"
+            android:text="SEND TOKEN"
+            android:textSize="14sp"
+            android:background="@drawable/button_shadow"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/registration_email" />
+
+    </RelativeLayout>
+
+</FrameLayout>

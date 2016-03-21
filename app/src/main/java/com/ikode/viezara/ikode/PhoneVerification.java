@@ -41,19 +41,23 @@ public class PhoneVerification extends Activity{
 
         DIALOG = new ProgressDialog(this);
         VERIFY_BTN = (Button) findViewById(R.id.verifyBtn);
-        txtSecurityCode = (EditText) findViewById(R.id.securityCode);
+        txtSecurityCode = (EditText) findViewById(R.id.tokenCode);
+
         Intent intent = getIntent();
         PhoneNumber = intent.getStringExtra("serial");
         Phrase = intent.getStringExtra("phrase");
+
+
         Security_Code = intent.getStringExtra(RequestData.display_code);
         //codeHandler = (TextView) findViewById(R.id.verificationCode);
         //codeHandler.setText(Security_Code);
         codeHandler = (TextView) findViewById(R.id.passPhrase);
         //codeHandler.setText(Phrase);
+
         convertPhrase=Phrase.toString();
-        int str_len = (Phrase.toString().length()/2);
+        int str_len = (Phrase.toString().length()/4);
         sb = new StringBuilder(Phrase.toString());
-        for (int index = str_len; index < sb.length(); index++) {
+        for (int index = 4; index < sb.length(); index++) {
             if (sb.charAt(index) == ' ') {
             } else {
                 sb.setCharAt(index, '*');
@@ -62,7 +66,6 @@ public class PhoneVerification extends Activity{
         codeHandler.setText(sb.toString());
 
         VERIFY_BTN.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 SecurityCode =txtSecurityCode.getText().toString();
                 if(isEmpty(SecurityCode)==false) {
@@ -77,6 +80,10 @@ public class PhoneVerification extends Activity{
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
     //check security code
     private boolean isEmpty(String scode) {
         if (scode.toString().trim().length() > 0) {
@@ -87,8 +94,9 @@ public class PhoneVerification extends Activity{
     }
     private void verify(){
         if ( (SecurityCode.equals(convertPhrase))) {Toast.makeText(getApplicationContext(), "User Credential is Verified!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent("android.intent.action.UserProfile");
+            Intent intent = new Intent("android.intent.action.UserConnect");
             startActivity(intent);
+            onBackPressed();
         } else {
             Toast.makeText(getApplicationContext(), "Verification failed: Code is Incorrect or Expired ", Toast.LENGTH_LONG).show();
         }

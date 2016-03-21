@@ -9,10 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Documents Test"
+        android:text="Documents"
         android:textColor="@color/com_facebook_blue"
         android:textSize="20sp"
         android:id="@+id/textView4"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal" />
+
+
+    <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
 </LinearLayout>
