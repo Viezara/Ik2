@@ -25,6 +25,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -68,10 +69,12 @@ import com.ikode.viezara.ikode.RequestData;
 import com.ikode.viezara.ikode.VerifyData;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.text.DateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.Map;
 
 //import com.google.zxing.client.android.share.ShareActivity;
@@ -122,12 +125,12 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private InactivityTimer inactivityTimer;
   private BeepManager beepManager;
   private AmbientLightManager ambientLightManager;
-    private Button skip;
-    private static int counter = 0;
-    private static int counter2 = 0;
+
   private boolean chooser = false;
   private DialogInterface.OnClickListener dialogClickListener;
   private String value_toSend;
+  private String typeMessage = "";
+  private HashMap<String, String> validCredentials = null;
 
   ViewfinderView getViewfinderView() {
     return viewfinderView;
@@ -153,22 +156,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     beepManager = new BeepManager(this);
     ambientLightManager = new AmbientLightManager(this);
 
-
     PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-    /**
-      skip = (Button) findViewById(R.id.skip);
 
-      skip.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              counter2 = 1;
-              counter = 0;
-              Intent intent = new Intent(CaptureActivity.this, VerifyData.class);
-              intent.putExtra(RequestData.barcode_ID, PRODUCT_CODE);
-              startActivity(intent);
-          }
-      });
-     */
+    //*********IKODE*************//
 
     dialogClickListener = new DialogInterface.OnClickListener() {
       @Override
@@ -176,7 +166,13 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         switch (which){
           case DialogInterface.BUTTON_POSITIVE:
             chooser = true;
-            IntentData();
+
+            boolean textType = (typeMessage.equals("SMS") || typeMessage.equals("EMAIL_ADDRESS") || typeMessage.equals("URI")) ? false:true;
+            if(textType) {
+              //IntentData();
+              onRestart();
+            }
+
             break;
 
           case DialogInterface.BUTTON_NEGATIVE:
@@ -186,6 +182,23 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         }
       }
     };
+
+    Button chat = (Button) findViewById(R.id.chat);
+
+    chat.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+
+        Intent i = new Intent(Intent.ACTION_SEND);
+        //i.setPackage("com.wechat");
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_TEXT, "safasdfsfasdfsd");
+        startActivity(i);
+      }
+    });
+
+    //***************************//
+
   }
 
   @Override
@@ -308,15 +321,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       // Install the callback and wait for surfaceCreated() to init the camera.
       surfaceHolder.addCallback(this);
     }
-    /**
-      if (counter == 1) {
-          counter = 0;
-          Intent intent2 = new Intent(this, VerifyData.class);
-          intent2.putExtra(RequestData.barcode_ID, PRODUCT_CODE);
-
-          startActivity(intent2);
-      }
-     */
   }
 
   private int getCurrentOrientation() {
@@ -358,27 +362,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       SurfaceHolder surfaceHolder = surfaceView.getHolder();
       surfaceHolder.removeCallback(this);
     }
-      /**
-      if(counter2 == 1) {
-          counter = 0;
-          counter2 = 0;
-      } else {
-          counter = 1;
-          counter2 = 1;
-      }
-       */
 
     super.onPause();
   }
-/*
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        counter = 0;
-        counter2 = 1;
-        finish();
-    }
-    */
 
   @Override
   protected void onDestroy() {
@@ -427,6 +413,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     Intent intent = new Intent(Intent.ACTION_VIEW);
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
     switch (item.getItemId()) {
+      /* commented for the menu toolbar (Manifest theme)
       case R.id.menu_share:
         //intent.setClassName(this, ShareActivity.class.getName());
         //startActivity(intent);
@@ -435,13 +422,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         intent.setClassName(this, HistoryActivity.class.getName());
         startActivityForResult(intent, HISTORY_REQUEST_CODE);
         break;
+        */
       case R.id.menu_settings:
         intent.setClassName(this, PreferencesActivity.class.getName());
         startActivity(intent);
         break;
       case R.id.menu_help:
-        intent.setClassName(this, HelpActivity.class.getName());
-        startActivity(intent);
+        //intent.setClassName(this, HelpActivity.class.getName());
+        //startActivity(intent);
         break;
       default:
         return super.onOptionsItemSelected(item);
@@ -605,7 +593,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     statusView.setVisibility(View.GONE);
     viewfinderView.setVisibility(View.GONE);
-    resultView.setVisibility(View.GONE);
+    resultView.setVisibility(View.VISIBLE);
 
     ImageView barcodeImageView = (ImageView) findViewById(R.id.barcode_image_view);
     if (barcode == null) {
@@ -662,9 +650,57 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                                                      this);
     }
 
+    //*********IKODE*************//
+
+    this.initializeValidCredentials();
+
+    typeMessage = typeTextView.getText().toString();
+    String messageType = typeMessage;
+
+    if(typeMessage.equals("SMS")) {
+      messageType = typeMessage;
+    } else if(typeMessage.equals("EMAIL_ADDRESS")) {
+      messageType = "EMAIL";
+    }
+
+    value_toSend = displayContents.toString();
+    AlertDialog.Builder builder = new AlertDialog.Builder(CaptureActivity.this);
+    builder.setCancelable(false);
+
+    //check what type of smartcode(sending of databody)
+    if(messageType.equals("EMAIL") || messageType.equals("SMS") || messageType.equals("URI")) {
+
+      //gets the first line of text in the data body
+      String[] dataBody = displayContents.toString().split(System.getProperty("line.separator"));
+      String sendTo = dataBody[0];
+      boolean checkCredentials = (validCredentials.get(messageType).equals(sendTo) ? true:false);
+
+      //check if the data body is ours
+      if(checkCredentials) {
+
+        builder.setMessage(displayContents + "\n\n" + "Do you allow sending of " + messageType + "?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+
+      } else {
+
+        builder.setMessage(displayContents + "\n\n" + "This is an Unrecognized barcode:\n" +
+                          "Would you like us to redirect to their\n" +
+                          messageType + "?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+
+      }
+
+    } else {
+
+      builder.setMessage("Barcode does not have data body").setPositiveButton("OK", dialogClickListener).show();
+
+    }
+
+    //***************************//
+
     int buttonCount = resultHandler.getButtonCount();
     ViewGroup buttonView = (ViewGroup) findViewById(R.id.result_button_view);
+    buttonView.setBackgroundColor(Color.DKGRAY);
     buttonView.requestFocus();
+
     for (int x = 0; x < ResultHandler.MAX_BUTTON_COUNT; x++) {
       TextView button = (TextView) buttonView.getChildAt(x);
       if (x < buttonCount) {
@@ -675,23 +711,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         button.setVisibility(View.GONE);
       }
     }
-    /*
-    Intent intent = new Intent("android.intent.action.REDIRECT");
-    intent.putExtra("bcode", displayContents);
-    startActivity(intent);
-    */
-    value_toSend = displayContents.toString();
-    AlertDialog.Builder builder = new AlertDialog.Builder(CaptureActivity.this);
-    builder.setMessage("Do you want to send to Ikode Exchange for Verification?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+  }
 
-  }
-  @Override
-  public void onRestart()
-  {
-    super.onRestart();
-    finish();
-    startActivity(getIntent());
-  }
+  //*********IKODE*************//
 
   public void IntentData()
   {
@@ -702,6 +724,25 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       startActivity(intent);
     }
   }
+
+  private void initializeValidCredentials() {
+    validCredentials = new HashMap<String, String>();
+
+    validCredentials.put("EMAIL", "support@ikona.co.nz");
+    validCredentials.put("SMS", "+64221879153");
+    validCredentials.put("URI", "www.ikona.co.nz");
+  }
+
+  //***************************//
+
+  @Override
+  public void onRestart()
+  {
+    super.onRestart();
+    finish();
+    startActivity(getIntent());
+  }
+
   // Briefly show the contents of the barcode, then handle the result outside Barcode Scanner.
   private void handleDecodeExternally(Result rawResult, ResultHandler resultHandler, Bitmap barcode) {
 

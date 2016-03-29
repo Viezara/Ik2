@@ -189,7 +189,12 @@
                   android:visibility="gone"/>
 
           <Button style="@style/ResultButton"
-                  android:visibility="gone"/>
+            android:visibility="gone"/>
+
+            <Button style="@style/ResultButton"
+                android:id="@+id/chat"
+                android:text="Chat"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
