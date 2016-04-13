@@ -303,6 +303,9 @@
                     android:layout_weight="0"
                     android:text="AGREE" />
             </LinearLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
         </LinearLayout>
     </ScrollView>
 

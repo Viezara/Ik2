@@ -19,28 +19,31 @@
             android:layout_marginRight="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="IkodeSC Reader"
-                android:textAlignment="center"
-                android:textColor="#ff000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:typeface="sans"
-                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="End-User License Agreement"
+                android:layout_marginTop="16dp"
                 android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
                 android:textSize="20sp"
-                android:textStyle="italic"
-                android:typeface="sans"
-
+                android:text="@string/licenseseach"
                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="10dp"
+                android:text="@string/apacheText"
+                android:id="@+id/textView50"
+                android:textColor="#ff000000"
+                android:textStyle="normal"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:autoLink="web"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,14 +52,14 @@
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
-                android:textSize="15sp"
-                android:text="@string/licenseseach"
+                android:textSize="20sp"
+                android:text="@string/licenseseach2"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:textColor="#ff000000"
                 android:textStyle="normal"
                 android:typeface="sans"
@@ -303,6 +306,9 @@
                     android:layout_weight="0"
                     android:text="AGREE" />
             </LinearLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
         </LinearLayout>
     </ScrollView>
 

@@ -94,8 +94,10 @@ public class PhoneVerification extends Activity{
     }
     private void verify(){
         if ( (SecurityCode.equals(convertPhrase))) {Toast.makeText(getApplicationContext(), "User Credential is Verified!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent("android.intent.action.UserConnect");
+            //Intent intent = new Intent("android.intent.action.UserConnect");
+            Intent intent = new Intent("android.intent.action.homescreen");
             startActivity(intent);
+            RequestData.user_Registered= "true";
             onBackPressed();
         } else {
             Toast.makeText(getApplicationContext(), "Verification failed: Code is Incorrect or Expired ", Toast.LENGTH_LONG).show();

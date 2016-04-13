@@ -51,7 +51,7 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_splash);
+        setContentView(R.layout.activity_splash);
 
         //for ikona License spannable
 
@@ -153,11 +153,8 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
                 SplashActivity.this.startActivityForResult(i, 1);
                 onBackPressed();
             }
-
-
-
     }
-    //// code inserted start
+    // code inserted start
     private void connectUser(){
         class conUser extends AsyncTask<Void,Void,String> {
             //ProgressDialog loading;
@@ -166,17 +163,12 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
                 super.onPreExecute();
                 //loading = ProgressDialog.show(SplashActivity.this,"Connecting...","Wait...",true,false);
             }
-
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 //loading.dismiss();
-
                 showUser(s);
-
             }
-
-
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
@@ -187,15 +179,11 @@ public class SplashActivity extends AppCompatActivity implements OnProgressBarLi
                 return s;
             }
         }
-
         conUser ae = new conUser();
         ae.execute();
     }
     private void showUser(String json){
-
         //Toast.makeText(SplashActivity.this, "insert : " + json.toString(), Toast.LENGTH_LONG).show();
-
-
         try {
             JSONObject jsonObject = new JSONObject(json);
             String error = jsonObject.getString(RequestData.TAG_ERROR);

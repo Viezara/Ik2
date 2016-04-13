@@ -34,12 +34,13 @@
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true"
-        android:xlargeScreens="true" />
+        android:xlargeScreens="true"
+    />
 
     <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false" />
+        android:required="true" />
     <uses-feature
         android:name="android.hardware.camera.front"
         android:required="false" />
@@ -56,7 +57,14 @@
         android:name="android.hardware.wifi"
         android:required="false" />
     <!-- This excludes Google TV, which is unfortunately included by virtue of not requiring a camera -->
-    <uses-feature android:name="android.hardware.touchscreen" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true" />
+
+    <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+    <uses-feature android:name="android.hardware.location" android:required="true" />
+    <uses-feature android:name="android.hardware.location.network" android:required="true" />
+    <uses-feature android:name="android.hardware.telephony.gsm" android:required="true" />
+    <uses-feature android:name="android.hardware.telephony.cdma" android:required="true" />
+    <uses-feature android:name="android.hardware.telephony" android:required="true" />
 
     <!-- TODO make this not required again after android.hardware.camera.any is available -->
     <application
@@ -125,8 +133,8 @@
         </activity>
         <activity
             android:name=".homescreen"
-            android:label="string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.homescreen" />
 
@@ -135,7 +143,7 @@
         </activity>
         <activity
             android:name=".ContentView"
-            android:label="Ikode SC Reader"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.ContentView" />
@@ -146,7 +154,7 @@
 
         <activity
             android:name=".RequestToken"
-            android:label="Ikode SC Reader"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.RequestToken" />
@@ -155,7 +163,7 @@
         </activity>
         <activity
             android:name=".RegistrationPage"
-            android:label="Ikode SC Reader"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.REGISTRATION" />
@@ -176,7 +184,7 @@
         <activity
             android:name=".AboutUs"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.AboutUs" />
 
@@ -230,7 +238,7 @@
         <activity
             android:name=".UserProfile"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.UserProfile" />
 
@@ -244,7 +252,8 @@
         <activity
             android:name=".HelpPage"
             android:label="@string/app_name"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.HelpPage" />
 

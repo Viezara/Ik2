@@ -4,43 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
     android:background="#dbe3e3"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.AboutUs">
 
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ikodeglobe"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/ic_ikodeglobe"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/iklabtTxt"
-        android:layout_below="@id/imageView32"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/imageView32"
+        />
 
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:id="@+id/relativeLayoutAbout"
-        android:layout_below="@+id/iklabtTxt">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_alignRight="@+id/relativeLayoutCopyright"
+        android:layout_alignEnd="@+id/relativeLayoutCopyright"
+        android:layout_toRightOf="@+id/imageView32"
+        android:layout_toEndOf="@+id/imageView32">
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dp"
             android:background="@color/colorPrimaryDark"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginBottom="5dp"
             android:id="@+id/view" />
 
@@ -50,7 +54,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="About"
             android:typeface="sans"
-            android:textSize="14sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginLeft="16dp"
             android:id="@+id/textView21"
@@ -62,8 +66,6 @@
             android:layout_height="2dp"
             android:background="@color/colorPrimaryDark"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/textView21"
             android:id="@+id/view1" />
@@ -75,9 +77,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/relativeLayoutInfos"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_below="@+id/relativeLayoutAbout">
+        android:layout_below="@+id/relativeLayoutAbout"
+        android:layout_alignRight="@+id/relativeLayoutAbout"
+        android:layout_alignEnd="@+id/relativeLayoutAbout"
+        android:layout_toEndOf="@+id/imageView32"
+        android:layout_toRightOf="@+id/imageView32">
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,7 +90,7 @@
             android:text="Version:"
             android:id="@+id/textView3"
             android:textColor="#ff000000"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textStyle="bold"
             />
@@ -96,8 +100,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Updates:"
-            android:layout_marginTop="5dp"
-            android:textSize="14sp"
+            android:layout_marginTop="2dp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textStyle="bold"
             android:textColor="#ff000000"
@@ -109,25 +113,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Licenses"
-            android:layout_marginTop="5dp"
-            android:textSize="14sp"
+            android:text="EULA :"
+            android:layout_marginTop="2dp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textColor="#ff000000"
             android:textStyle="bold"
             android:id="@+id/textView6"
-            android:layout_below="@+id/textView5"
-            android:layout_alignRight="@+id/textView5"
-            android:layout_alignEnd="@+id/textView5" />
+            android:layout_below="@+id/textView5" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Our Privacy Policy :"
-            android:layout_marginTop="5dp"
+            android:text="Privacy Policy :"
+            android:layout_marginTop="2dp"
             android:id="@+id/textView8"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textColor="#ff000000"
             android:textStyle="bold"
@@ -139,9 +141,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Terms of Use :"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:id="@+id/textView11"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textColor="#ff000000"
             android:textStyle="bold"
@@ -156,10 +158,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="FAQ :"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:id="@+id/textViewFaq"
             android:typeface="sans"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textColor="#ff000000"
             android:textStyle="bold"
             android:layout_below="@+id/textView11"
@@ -170,7 +172,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="1.3.2016"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:id="@+id/textView28"
             android:textColor="#ff000000"
             android:typeface="sans"
@@ -185,7 +187,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="1.1.2"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textStyle="bold"
             android:textColor="#ff000000"
@@ -194,77 +196,58 @@
             android:layout_alignRight="@+id/textView28"
             android:layout_alignEnd="@+id/textView28" />
 
-        <TextView
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=">"
-            android:textSize="30sp"
+            android:background="@drawable/ic_keyboard_arrow_right_black_36dp"
             android:id="@+id/privacyPolicy"
-            android:typeface="sans"
-            android:textColor="#ff000000"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:layout_alignBaseline="@+id/textView8"
             android:layout_alignBottom="@+id/textView8"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
 
-
-        <TextView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=">"
-            android:textSize="30sp"
-            android:typeface="sans"
-            android:textColor="#ff000000"
-            android:textStyle="bold"
+            android:background="@drawable/ic_keyboard_arrow_right_black_36dp"
             android:id="@+id/licensesUse"
-            android:clickable="true"
-            android:layout_below="@+id/textView29"
+            android:layout_above="@+id/textView8"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <TextView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=">"
+            android:background="@drawable/ic_keyboard_arrow_right_black_36dp"
             android:id="@+id/faQ"
-            android:textSize="30sp"
-            android:typeface="sans"
-            android:textColor="#ff000000"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:layout_alignBaseline="@+id/textViewFaq"
             android:layout_alignBottom="@+id/textViewFaq"
-            android:layout_alignLeft="@+id/privacyPolicy"
-            android:layout_alignStart="@+id/privacyPolicy" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-        <TextView
+
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=">"
+            android:background="@drawable/ic_keyboard_arrow_right_black_36dp"
             android:id="@+id/termsOfUse"
-            android:textSize="30sp"
-            android:typeface="sans"
-            android:textColor="#ff000000"
-            android:textStyle="bold"
-            android:clickable="true"
             android:layout_above="@+id/textViewFaq"
-            android:layout_alignRight="@+id/faQ"
-            android:layout_alignEnd="@+id/faQ" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:id="@+id/relativeLayoutCopyright"
-        android:layout_below="@+id/relativeLayoutInfos">
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/iklabtTxt"
+        android:layout_alignLeft="@+id/iklabtTxt"
+        android:layout_alignStart="@+id/iklabtTxt">
 
 
         <View
@@ -272,8 +255,6 @@
             android:layout_height="2dp"
             android:background="@color/colorPrimaryDark"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:id="@+id/view3" />
 
         <TextView
@@ -285,7 +266,7 @@
             android:id="@+id/textView17"
             android:gravity="center"
             android:typeface="sans"
-            android:textSize="14sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             />
 
@@ -294,8 +275,6 @@
             android:layout_height="2dp"
             android:background="@color/colorPrimaryDark"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/textView17"
             android:id="@+id/view4" />
@@ -304,11 +283,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginRight="54dp"
+        android:id="@+id/relativeLayoutCredits"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/relativeLayoutCopyright"
-        android:id="@+id/relativeLayoutCredits">
+        android:layout_alignRight="@+id/relativeLayoutInfos"
+        android:layout_alignEnd="@+id/relativeLayoutInfos"
+        android:layout_toEndOf="@+id/imageView32"
+        android:layout_toRightOf="@+id/imageView32">
 
         <TextView
             android:layout_width="wrap_content"
@@ -316,7 +297,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Credits:"
             android:typeface="sans"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="italic|bold"
             android:id="@+id/textView12"
             android:textColor="#ff000000"
@@ -331,7 +312,7 @@
             android:text="Peter Rathgeber"
             android:textColor="#ff000000"
             android:id="@+id/textView13"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textStyle="bold"
             android:layout_above="@+id/textView18"
@@ -344,7 +325,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Demy Mendoza"
             android:layout_marginTop="5dp"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textColor="#ff000000"
             android:id="@+id/textView25"
             android:typeface="sans"
@@ -362,7 +343,7 @@
             android:textColor="#ff000000"
             android:id="@+id/textView19"
             android:typeface="sans"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@+id/textView18"
             android:layout_alignRight="@+id/textView18"
@@ -376,7 +357,7 @@
             android:layout_marginTop="5dp"
             android:textColor="#ff000000"
             android:id="@+id/textView18"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:typeface="sans"
             android:textStyle="bold"
             android:layout_below="@+id/textView12"
@@ -384,6 +365,4 @@
             android:layout_alignEnd="@+id/textView13" />
 
     </RelativeLayout>
-
-
 </RelativeLayout>

@@ -43,6 +43,7 @@
     <string name="menu_encode_mecard">Use MECARD</string>
     <string name="menu_encode_vcard">Use vCard</string>
     <string name="menu_help">Help</string>
+    <string name="menu_profile">Profile</string>
     <string name="menu_history">History</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_share">Share</string>
@@ -265,7 +266,9 @@
     <string name="termsuse_16">16.\tThe Service, or components thereof, may be subject to European Union and/or United States export controls. No Service may be downloaded or otherwise exported or re-exported into (or to a national or resident of) any country to which the European Union and or United States has embargoed goods. By using the Service, you represent and warrant that you are not located in, under the control of, or a national or resident of any such country.</string>
     <string name="termsuse_17">17.\tThese Terms of Use contains the entire agreement between us regarding your use of the Service and supersedes all previous agreements. Should any provision of the Terms of Use be held to be void, invalid, unenforceable or illegal by a court, the validity and enforceability of the other provisions will not be affected thereby. Failure to enforce any provision of the Terms of Use will not constitute or be construed as a waiver of such provision or the right to enforce it. The Terms of Use shall be governed by and construed in accordance with the laws of Switzerland, without giving effect to any principles of conflicts of law. You hereby agree that any disputes arising under or in connection with the Terms of Use or the Service shall be submitted for resolution to courts in Geneva in Switzerland, and you hereby waive any jurisdictional, venue or inconvenient forum objections to such courts. The United National Convention on the International Sale of Goods shall not apply to the Terms of Use or the Service.</string>
     <string name="termsfooter">Our Terms of Use for Mobile Apps may change at any time. If our information practices change in a significant way, we will post the policy changes here. This Terms of Use for Mobile Apps was last updated on January 26, 2016.</string>
-    <string name="licenseseach">© Ikona AG \n All Rights Reserved.</string>
+    <string name="licenseseach">© Copyright 2016, Ikona AG</string>
+    <string name="apacheLicense">1. Apache License, version 2.0</string>
+    <string name="ikonaHeading">2. Ikona End-User License (EULA)</string>
     <string name="read_license">Please read this End-User License Agreement ("Agreement") carefully before downloading or using our IkodeSC Reader® for mobile devices ("Application").</string>
     <string name="downloading_license">By downloading or using the Application, you are agreeing to be bound by the terms and conditions of this Agreement,
 our more detailed "Terms of Use" agreement and our "Privacy Policy", which you find in the individual Terms of Use
@@ -300,4 +303,6 @@ Privacy Policy, do not download or use the Application.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apacheText">Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at \n\nhttp://www.apache.org/licenses/LICENSE-2.0 \n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="licenseseach2">© Ikona AG All Rights Reserved 2016.</string>
 </resources>

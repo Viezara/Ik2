@@ -11,14 +11,15 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class AboutUs extends AppCompatActivity {
 
 
-    private TextView LICENSE;
-    private TextView PRIVACY;
-    private TextView TERMS;
+    private ImageButton LICENSE;
+    private ImageButton PRIVACY;
+    private ImageButton TERMS;
     private TextView ikonalicenseabout;
 
     @Override
@@ -49,9 +50,9 @@ public class AboutUs extends AppCompatActivity {
             }
         });*/
 
-        LICENSE = (TextView)findViewById(R.id.licensesUse);
-        PRIVACY = (TextView) findViewById(R.id.privacyPolicy);
-        TERMS = (TextView) findViewById(R.id.termsOfUse);
+        LICENSE = (ImageButton) findViewById(R.id.licensesUse);
+        PRIVACY = (ImageButton) findViewById(R.id.privacyPolicy);
+        TERMS = (ImageButton) findViewById(R.id.termsOfUse);
 
         LICENSE.setOnClickListener(new View.OnClickListener() {
             @Override

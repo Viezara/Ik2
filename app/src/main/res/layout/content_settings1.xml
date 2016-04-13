@@ -10,13 +10,13 @@
 
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ikode_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        android:theme="@style/Theme.AppCompat.Light"
-        app:title="Settings"
-        app:titleTextColor="#DBE3E3" />
+        app:titleTextColor="#fff"
+        android:id="@+id/ikode_bar"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:title="Settings" />
 
     <RelativeLayout
         android:layout_width="match_parent"
