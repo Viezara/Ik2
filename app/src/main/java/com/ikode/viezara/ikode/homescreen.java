@@ -30,6 +30,7 @@ public class homescreen extends AppCompatActivity {
     private TextView ikonalicense;
     private SharedPreferences SP;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,7 @@ public class homescreen extends AppCompatActivity {
         View mViewOption = (View)findViewById(R.id.relativeLayout);
         HELP = (TextView) findViewById(R.id.textView26);
         ABOUT = (TextView) findViewById(R.id.textView27);
+
         //LOGIN_BTN.setImageResource(R.drawable.ic_login);
 
         SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
@@ -121,7 +123,7 @@ public class homescreen extends AppCompatActivity {
         }
         else
         {
-            mViewOption.setVisibility(View.GONE);
+            REGISTER_BOX.setVisibility(View.GONE);
 
         }
         SCAN_BTN.setOnClickListener(new View.OnClickListener() {

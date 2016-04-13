@@ -43,8 +43,8 @@ public class SecureStoreActivity extends AppCompatActivity {
     ViewPager pager;
     int Numboftabs =2;*/
 
-    FragmentManager mFragmentManager;
-    FragmentTransaction mFragmentTransaction;
+    FragmentManager mFragmentManager2;
+    FragmentTransaction mFragmentTransaction2;
 
 
     @Override
@@ -57,9 +57,9 @@ public class SecureStoreActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.ikode_bar);
         setSupportActionBar(toolbar);
 
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.store_containerView,new TabFragment()).commit();
+        mFragmentManager2 = getSupportFragmentManager();
+        mFragmentTransaction2 = mFragmentManager2.beginTransaction();
+        mFragmentTransaction2.replace(R.id.store_containerView,new SDSFragment()).commit();
 
         SP = getSharedPreferences(RequestData.SESSION, Context.MODE_PRIVATE);
 
@@ -104,7 +104,7 @@ public class SecureStoreActivity extends AppCompatActivity {
 
                     case R.id.navigation_item_3:
                         Toast.makeText(getApplicationContext(),"Reports",Toast.LENGTH_SHORT).show();
-                        Intent intentReport = new Intent("android.intent.action.Settings1");
+                        Intent intentReport = new Intent("android.intent.action.Reports");
                         startActivity(intentReport);
                         return true;
 

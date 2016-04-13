@@ -20,6 +20,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ikode.fragments.FragmentProfSettings;
+import com.ikode.fragments.FragmentProfile;
+import com.ikode.fragments.SecureDataStore;
+
 
 //import android.app.FragmentManager;
 
@@ -44,7 +48,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-       // iAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        // iAdapter = new MyPagerAdapter(getSupportFragmentManager());
         toolbar = (Toolbar) findViewById(R.id.ikode_bar);
         setSupportActionBar(toolbar);
 
@@ -104,19 +108,32 @@ public class UserProfile extends AppCompatActivity {
 
                     case R.id.navigation_item_0:
                     Intent intent = new Intent("android.intent.action.CAPTURE");
-                    startActivity(intent);
+                       startActivity(intent);
+                       /* FragmentCam fragmentCam = new FragmentCam();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction5 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction5.replace(R.id.containerView, fragmentCam);
+                        fragmentTransaction5.commit();*/
                         return true;
 
                     case R.id.navigation_item_1:
                         Toast.makeText(getApplicationContext(),"Profile Selected",Toast.LENGTH_SHORT).show();
-                        Intent intentProfile = new Intent("android.intent.action.UserProfile");
-                        startActivity(intentProfile);
+
+                        FragmentProfile fragmentProfile = new FragmentProfile();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction6 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction6.replace(R.id.containerView, fragmentProfile);
+                        fragmentTransaction6.commit();
+                       /* Intent intentProfile = new Intent("android.intent.action.UserProfile");
+                        startActivity(intentProfile);*/
                         return true;
 
                     case R.id.navigation_item_2:
                         Toast.makeText(getApplicationContext(),"Secured Data Store",Toast.LENGTH_SHORT).show();
-                        Intent intent4 = new Intent("android.intent.action.SecureStoreActivity");
-                        startActivity(intent4);
+                        SecureDataStore fragmentSecure = new SecureDataStore();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction4.replace(R.id.containerView, fragmentSecure);
+                        fragmentTransaction4.commit();
+//                        Intent intent4 = new Intent("android.intent.action.SecureStoreActivity");
+//                        startActivity(intent4);
                         return true;
 
                     case R.id.navigation_item_3:
@@ -130,19 +147,33 @@ public class UserProfile extends AppCompatActivity {
 
                     case R.id.navigation_item_4:
                         Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
-                        Intent intent6 = new Intent("android.intent.action.Settings1");
-                        startActivity(intent6);
+                        FragmentProfSettings fragmentSettings = new FragmentProfSettings();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction1.replace(R.id.containerView,fragmentSettings);
+                        fragmentTransaction1.commit();
+
+                        /*Intent intent6 = new Intent("android.intent.action.Settings1");
+                        startActivity(intent6);*/
                         return true;
 
                     case R.id.navigation_item_5:
                         Toast.makeText(getApplicationContext(),"Help",Toast.LENGTH_SHORT).show();
-                        Intent intent1 = new Intent("android.intent.action.HelpPage");
+                        /*FragmentHelp fragmentHelp = new FragmentHelp();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction2.replace(R.id.containerView,fragmentHelp);
+                        fragmentTransaction2.commit();*/
+
+                       Intent intent1 = new Intent("android.intent.action.HelpPage");
                         startActivity(intent1);
                         return true;
 
 
                     case R.id.navigation_item_6:
                         Toast.makeText(getApplicationContext(),"About Us",Toast.LENGTH_SHORT).show();
+                        /*FragmentAbout fragmentAbout = new FragmentAbout();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction3.replace(R.id.containerView, fragmentAbout);
+                        fragmentTransaction3.commit();*/
                         Intent intent2 = new Intent("android.intent.action.AboutUs");
                         startActivity(intent2);
                         return true;

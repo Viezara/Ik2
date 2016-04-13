@@ -57,19 +57,19 @@ import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.client.android.clipboard.ClipboardInterface;
-import com.google.zxing.client.android.history.HistoryActivity;
 import com.google.zxing.client.android.history.HistoryItem;
 import com.google.zxing.client.android.history.HistoryManager;
 import com.google.zxing.client.android.result.ResultButtonListener;
 import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
 import com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever;
+import com.ikode.viezara.ikode.HelpPage;
 import com.ikode.viezara.ikode.R;
 import com.ikode.viezara.ikode.RequestData;
+import com.ikode.viezara.ikode.UserProfile;
 import com.ikode.viezara.ikode.VerifyData;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.text.DateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -428,8 +428,12 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         startActivity(intent);
         break;
       case R.id.menu_help:
-        //intent.setClassName(this, HelpActivity.class.getName());
-        //startActivity(intent);
+        Intent i = new Intent(this.getApplicationContext(), HelpPage.class);
+        startActivity(i);
+        break;
+      case R.id.menu_profile:
+        intent.setClassName(this, UserProfile.class.getName());
+        startActivity(intent);
         break;
       default:
         return super.onOptionsItemSelected(item);
@@ -682,15 +686,23 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
       } else {
 
-        builder.setMessage(displayContents + "\n\n" + "This is an Unrecognized barcode:\n" +
-                          "Would you like us to redirect to their\n" +
+        builder.setMessage(displayContents + "\n\n" + "This is not an Ikode Smartcode®:\n" +
+                          "The scanned barcode may contain a link\n" +
+                          "Ifso, would you like us to redirect you to\n" +
+                          "the linked Website/Phone/Email?\n" +
+                          "CAUTION: We do not verify the link\n" +
                           messageType + "?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
 
       }
 
     } else {
 
-      builder.setMessage("Barcode does not have data body").setPositiveButton("OK", dialogClickListener).show();
+      builder.setMessage(value_toSend + "\n\n" + "This is not an Ikode Smartcode®:\n" +
+              "The scanned barcode may contain a link\n" +
+              "Ifso, would you like us to redirect you to\n" +
+              "the linked Website/Phone/Email?\n" +
+              "CAUTION: We do not verify the link\n" +
+              messageType + "?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
 
     }
 
@@ -727,7 +739,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
   private void initializeValidCredentials() {
     validCredentials = new HashMap<String, String>();
-
     validCredentials.put("EMAIL", "support@ikona.co.nz");
     validCredentials.put("SMS", "+64221879153");
     validCredentials.put("URI", "www.ikona.co.nz");

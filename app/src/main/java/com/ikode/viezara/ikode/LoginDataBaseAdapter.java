@@ -51,6 +51,7 @@ public class LoginDataBaseAdapter
 		public void insertEntry(String userName,String password)
 		{
 	       ContentValues newValues = new ContentValues();
+			RequestData.storedEmail = userName;
 			// Assign values for each row.
 			newValues.put("USERNAME", userName);
 			newValues.put("PASSWORD",password);

@@ -7,6 +7,7 @@
     android:background="#dbe3e3"
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
+    android:paddingTop="30dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ikode.viezara.ikode.RegistrationPage"
     >
@@ -25,6 +26,7 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="20px"
         android:paddingRight="30px"
+        android:textCursorDrawable="@null"
         android:textColor="#ff000000" />
     <EditText
         android:id="@+id/registration_password"
@@ -41,6 +43,7 @@
         android:inputType="textPassword"
         android:paddingLeft="20px"
         android:paddingRight="20px"
+        android:textCursorDrawable="@null"
         android:textColor="#ff000000" />
 
     <EditText
@@ -59,6 +62,7 @@
         android:nextFocusForward="@+id/signup_btn"
         android:paddingLeft="20px"
         android:paddingRight="20px"
+        android:textCursorDrawable="@null"
         android:textColor="#ff000000"
         android:maxLength="16" />
 
@@ -115,6 +119,7 @@
         android:layout_height="wrap_content"
         android:text="I like to receive information about Ikode deployment or associated counter-fraud services"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="16dp"
         android:id="@+id/checkBox3"
         android:textColor="#ff000000"
         android:textSize="12dp"

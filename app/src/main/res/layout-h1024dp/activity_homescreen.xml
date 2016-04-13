@@ -18,12 +18,12 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
             android:layout_marginTop="16dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_ikodeglobe" />
+            android:src="@drawable/ic_globeikode" />
 
 
         <TextView
@@ -32,13 +32,14 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="18sp"
             android:id="@+id/ikonalicensetext"
+            android:layout_marginTop="16dp"
             android:layout_below="@+id/imageView2"
             android:layout_centerHorizontal="true"
             />
 
         <ImageButton
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/loginButton1"
             android:background="@drawable/ic_login_user"
             android:layout_alignParentTop="true"
@@ -52,15 +53,13 @@
         android:layout_marginTop="18dp"
         android:id="@+id/relativeLayoutscans"
         android:layout_below="@+id/relativeLayoutGlobe"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:gravity="center_horizontal"
+        >
 
         <Button
             android:id="@+id/scanButton"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_width="300dp"
+            android:layout_height="58dp"
             android:text="SCAN CODE"
             android:icon="@drawable/ic_autofocus"
             android:textAlignment="gravity"
@@ -68,15 +67,15 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
-            android:textSize="14sp"
+            android:textSize="34sp"
             android:background="@drawable/button_shadow"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/imgNFC"
             android:layout_toEndOf="@+id/imgNFC" />
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_width="300dp"
+            android:layout_height="58dp"
             android:text="SCAN RFID"
             android:layout_marginTop="10dp"
             android:typeface="sans"
@@ -84,7 +83,7 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
-            android:textSize="14sp"
+            android:textSize="34sp"
             android:id="@+id/button3"
             android:background="@drawable/button_shadow"
             android:layout_below="@+id/scanNFC"
@@ -92,8 +91,8 @@
             android:layout_toEndOf="@+id/imgNFC" />
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_width="300dp"
+            android:layout_height="58dp"
             android:id="@+id/scanNFC"
             android:text="SCAN NFC"
             android:textAlignment="gravity"
@@ -101,7 +100,7 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#dbe3e3"
-            android:textSize="14sp"
+            android:textSize="34sp"
             android:background="@drawable/button_shadow"
             android:layout_marginTop="10dp"
             android:layout_marginRight="80dp"
@@ -111,8 +110,8 @@
             android:layout_alignParentEnd="true" />
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:id="@+id/imgQR"
             android:background="@drawable/ic_qrbig"
             android:layout_alignParentTop="true"
@@ -120,8 +119,8 @@
             android:layout_toStartOf="@+id/scanButton" />
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/imgNFC"
             android:background="@drawable/ic_nfc_signal"
             android:layout_alignTop="@+id/scanNFC"
@@ -129,8 +128,8 @@
             android:layout_toStartOf="@+id/scanNFC" />
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/imgRFID"
             android:background="@drawable/ic_rfid"
             android:layout_alignTop="@+id/button3"
@@ -142,64 +141,45 @@
 
 
     <RelativeLayout
-        android:layout_width="320dp"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/ikodebox"
         android:id="@+id/relativeLayout"
         android:layout_below="@+id/relativeLayoutscans"
         android:layout_centerHorizontal="true"
         >
 
+
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"
             android:checked="false"
             android:text="@string/nR"
-            android:textSize="10sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:typeface="sans" />
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/checkBox2"
-            android:layout_alignStart="@+id/checkBox2"
-            android:layout_below="@+id/checkBox2"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"
-            android:checked="false"
-            android:text="I do not want to Register."
-            android:textColor="#ff000000"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-
-
+            android:typeface="sans"
+            android:layout_marginTop="112dp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
         android:id="@+id/relativeLayout7">
         <TextView
             android:id="@+id/textView26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:drawableLeft="@drawable/ic_help"
             android:gravity="center_vertical"
             android:text="Help"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="20sp"
+            android:textSize="34sp"
             android:textStyle="bold"
             android:typeface="sans" />
 
@@ -211,7 +191,7 @@
             android:gravity="center_vertical"
             android:text="About"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="20sp"
+            android:textSize="34sp"
             android:textStyle="bold"
             android:typeface="sans"
             android:layout_alignTop="@+id/textView26"
@@ -219,7 +199,5 @@
             />
 
     </RelativeLayout>
-
-
 
 </RelativeLayout>

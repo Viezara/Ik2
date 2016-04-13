@@ -5,6 +5,7 @@
     android:background="#dbe3e3"
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
+    android:paddingBottom="10dp"
     tools:context="com.ikode.viezara.ikode.ForgotToken">
 
     <!-- TODO: Update blank fragment layout -->

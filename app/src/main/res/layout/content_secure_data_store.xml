@@ -11,9 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
+        app:titleTextColor="#fff"
         android:id="@+id/ikode_bar"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        app:title="Ikode SC Reader" />
+        app:title="Secure Data Store" />
 
     <android.support.v4.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
