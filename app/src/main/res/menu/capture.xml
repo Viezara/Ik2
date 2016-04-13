@@ -14,23 +14,24 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <item android:id="@+id/menu_settings"
         android:title="@string/menu_settings"
         android:icon="@android:drawable/ic_menu_preferences"
         android:orderInCategory="3"
-        android:showAsAction="withText"/>
+        app:showAsAction="withText"/>
   <item android:id="@+id/menu_help"
         android:title="@string/menu_help"
         android:icon="@android:drawable/ic_menu_help"
         android:orderInCategory="4"
-        android:showAsAction="withText"/>
+        app:showAsAction="withText"/>
   <item android:id="@+id/menu_profile"
       android:title="@string/menu_profile"
       android:icon="@android:drawable/ic_menu_info_details"
       android:orderInCategory="5"
-      android:showAsAction="withText"/>
+      app:showAsAction="withText"/>
 
 </menu>
 
